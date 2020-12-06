@@ -14,17 +14,44 @@ if( $_POST["query"] != '')
 }
 else
 {
-    $sql = "SELECT * FROM AgenziaMZ";
+    $sql = "SELECT * FROM AgenziaMZ WHERE user_type='". $_POST["user_type"] ."'";
 }
 
-if (isset($_POST["user_type"])) {
-    $user_type = implode("','", $_POST["user_type"]);
-    if( $_POST["query"] != '' ) {
-        $sql .= " AND (user_type IN ('".$user_type."'))";
+if (isset($_POST["action"])) {
+    if (isset($_POST["minimum_price"], $_POST["maximum_price"]) && !empty($_POST["maximum_price"])) {
+        $sql .= " AND ( prezzo BETWEEN " . $_POST["minimum_price"] . " AND " . $_POST["maximum_price"] . ") ";
     }
-    else {
-        $sql .= " WHERE (user_type IN ('".$user_type."'))";
+
+    if (isset($_POST["minimum_metratura"], $_POST["maximum_metratura"])  && !empty($_POST["maximum_metratura"])) {
+        $sql .= " AND (metratura BETWEEN " . $_POST["minimum_metratura"] . " AND " . $_POST["maximum_metratura"] . ")";
     }
+
+    if (isset($_POST["minimum_locali"], $_POST["maximum_locali"])  && !empty($_POST["maximum_locali"])) {
+        $sql .= " AND (locali BETWEEN " . $_POST["minimum_locali"] . " AND " . $_POST["maximum_locali"] . ")";
+    }
+
+    if (isset($_POST["classe_energetica"])) {
+        $classe_energetica = implode("','", $_POST["classe_energetica"]);
+        $sql .= " AND (classe_energetica IN ('".$classe_energetica."'))";
+    }
+
+    if (isset($_POST["immobile_vendita_paese"])) {
+        $immobile_vendita_paese = implode("','", $_POST["immobile_vendita_paese"]);
+        $sql .= " AND (immobile_vendita_paese IN ('".$immobile_vendita_paese."'))";
+    }
+
+    if (isset($_POST["arredamento"])) {
+        $arredamento = implode("','", $_POST["arredamento"]);
+        $sql .= " AND (arredamento IN ('".$arredamento."'))";
+    }
+
+    if (isset($_POST["info_aggiuntive"])) {
+        foreach ($_POST["info_aggiuntive"] as $info) {
+            $sql .= " AND (".$info."=1)";
+        }
+    }
+
+
 }
 
 $sql .= " ORDER BY id DESC ";

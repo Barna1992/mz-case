@@ -58,7 +58,7 @@ include('./connection.php');
                                 </h4>
                             </div>
                             <div class="col-md-3">
-                                <input type="button" onclick="location.href='immobile_update.php?id=<?php echo $_GET['id'] ?>'" value="Modifica" />
+                                <input type="button" onclick="location.href='user_update.php?id=<?php echo $_GET['id'] ?>'" value="Modifica" />
                                 <input type="button" onclick="deleteWarning()" type="button" value="Elimina">
                             </div>
                         </div>

@@ -1,43 +1,9 @@
 <!doctype html>
 <html class="fixed search-results">
-<head>
-
-    <!-- Basic -->
-    <meta charset="UTF-8">
-
-    <title>Timeline | Okler Themes | Porto-Admin</title>
-    <meta name="keywords" content="HTML5 Admin Template" />
-    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
-    <meta name="author" content="okler.net">
-
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-    <!-- Web Fonts  -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
-
-    <!-- Vendor CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
-    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
-
-    <!-- Theme CSS -->
-    <link rel="stylesheet" href="assets/stylesheets/theme.css" />
-
-    <!-- Skin CSS -->
-    <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
-
-    <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
-
-    <!-- Head Libs -->
-    <script src="assets/vendor/modernizr/modernizr.js"></script>
-
-</head>
-    <?php
-        include('./connection.php');
-    ?>
+<?php
+include('./head.html');
+include('./connection.php');
+?>
 
 <body>
 <section class="body">
@@ -49,7 +15,7 @@
     <div class="inner-wrapper">
 
         <?php
-        include('./sidebar.html');
+            include('./filter.php');
         ?>
 
         <section role="main" class="content-body">
@@ -80,16 +46,6 @@
                             </div>
                         </div>
                         </div>
-                        <div class="col-md-3">
-                            <div style="margin-top: -10px; overflow-y: auto; overflow-x: hidden;">
-                            <div class="list-group-item checkbox">
-                                <label><input type="checkbox" class="common_selector user_type" value="vende"> vende</label>
-                            </div>
-                            <div class="list-group-item checkbox">
-                                <label><input type="checkbox" class="common_selector user_type" value="cerca"> cerca</label>
-                            </div>
-                            </div>
-                        </div>
                     </form>
 
                 </div>
@@ -107,7 +63,6 @@
             <!-- end: page -->
         </section>
     </div>
-
 </section>
 
 
@@ -134,6 +89,14 @@
 <script src="assets/vendor/jquery-appear/jquery.appear.js"></script>
 <!-- Theme Initialization Files -->
 <script src="assets/javascripts/theme.init.js"></script>
+
+
+<!-- Theme Initialization Files -->
+<script src="assets/javascripts/theme.init.js"></script>
+<script src="assets/javascripts/forms/immobili_filters.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 
 </body>
