@@ -1,0 +1,64 @@
+<!-- start: header -->
+<header class="header">
+<!--    --><?php
+//    session_start();
+//
+//    if (isset($_SESSION['session_id'])) {
+//        $session_user_email = htmlspecialchars($_SESSION['session_user'], ENT_QUOTES, 'UTF-8');
+//        $session_user_first_name = htmlspecialchars($_SESSION['session_user_first_name'], ENT_QUOTES, 'UTF-8');
+//        $session_user_last_name = htmlspecialchars($_SESSION['session_user_last_name'], ENT_QUOTES, 'UTF-8');
+//        $session_id = htmlspecialchars($_SESSION['session_id']);
+//
+//    } else {
+//        header('Location: login.php');
+//    }?>
+    <div class="logo-container">
+        <a href="./" class="logo">
+            <img src="./assets/images/logo_mz.png" height="35" alt="JSOFT Admin" />
+        </a>
+        <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+            <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+        </div>
+    </div>
+
+    <!-- start: search & user box -->
+    <div class="header-right">
+
+        <span class="separator"></span>
+
+        <div id="userbox" class="userbox">
+            <a href="#" data-toggle="dropdown">
+                <figure class="profile-picture">
+                    <img src="./assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="./assets/images/!logged-user.jpg" />
+                </figure>
+                <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@JSOFT.com">
+                    <span class="name"><?php
+                            if( isset($_SESSION['session_id']) ) {
+                                echo $_SESSION['session_user_first_name'] . ' ' .  $_SESSION['session_user_last_name'] ;
+                            }
+                        ?></span>
+                    <span class="role">
+                        <?php
+                        if( isset($_SESSION['session_id']) ) {
+                            echo $_SESSION['session_user'] ;
+                        }
+                        ?>
+                    </span>
+                </div>
+
+                <i class="fa custom-caret"></i>
+            </a>
+
+            <div class="dropdown-menu">
+                <ul class="list-unstyled">
+                    <li class="divider"></li>
+                    <li>
+                        <a role="menuitem" tabindex="-1" href="./logout.php"><i class="fa fa-power-off"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end: search & user box -->
+</header>
+<!-- end: header -->
