@@ -2,7 +2,7 @@
     include('./connection.php');
     if(isset($_GET['id'])) {
         $id = mysqli_real_escape_string($conn, $_GET['id']);
-        $sql = "SELECT * FROM AgenziaClienti WHERE id_cliente = $id";
+        $sql = "SELECT * FROM AgenziaMZ WHERE id = $id";
         $result = mysqli_query($conn, $sql);
         $utente = mysqli_fetch_assoc($result);
         mysqli_free_result($result);
@@ -42,8 +42,26 @@ include('./connection.php');
             <div id="user_details" class="tab-pane active">
 
                 <form class="form-horizontal" method="get">
-                    <h4 class="mb-xlg">Informazioni Generali</h4>
                     <fieldset>
+                        <div class="form-group">
+                            <div class="col-md-9">
+                                <h4 class="mb-xlg">
+                                    <?php if(!$utente['disponibile']) {
+                                        echo '<strike><p>Informazioni Generali</p></strike>
+                                                  <p class="text-danger">NON DISPONIBILE</p>  
+                                                 ';
+                                    }
+                                    else {
+                                        echo 'Informazioni Generali';
+                                    }
+                                    ?>
+                                </h4>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="button" onclick="location.href='immobile_update.php?id=<?php echo $_GET['id'] ?>'" value="Modifica" />
+                                <input type="button" onclick="deleteWarning()" type="button" value="Elimina">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-4">
                                 Nome:
@@ -77,11 +95,183 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
+                                <div class="col-md-4">
+                                    Località:
+                                </div>
+                                <div class="col-md-8">
+                                    <?php if( $utente['immobile_vendita_paese'] ) {
+                                        echo $utente['immobile_vendita_paese'];
+                                    } else {
+                                        echo '-';
+                                    } ?>
+                                </div>
+                        </div>
+                        <div class="form-group">
                             <div class="col-md-4">
-                                Tipologia di utente:
+                                Metratura:
                             </div>
                             <div class="col-md-8">
-                                <?php echo $utente['user_type'] ?>
+                                <?php if( $utente['metratura'] ) {
+                                    echo $utente['metratura'] . 'm<sup>2</sup>';
+                                } else {
+                                    echo '-';
+                                } ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Anno:
+                            </div>
+                            <div class="col-md-8">
+                                <?php if( $utente['anno'] ) {
+                                    echo $utente['anno'];
+                                } else {
+                                    echo '-';
+                                } ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Prezzo:
+                            </div>
+                            <div class="col-md-8">
+                                <?php if( $utente['prezzo'] ) {
+                                    echo $utente['prezzo'];
+                                } else {
+                                    echo '-';
+                                } ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Provvigione:
+                            </div>
+                            <div class="col-md-8">
+                                <?php if( $utente['provvigione'] ) {
+                                    echo $utente['provvigione'];
+                                } else {
+                                    echo '-';
+                                } ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Numero di locali:
+                            </div>
+                            <div class="col-md-8">
+                                <?php echo $utente['locali'] ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Numero di camere:
+                            </div>
+                            <div class="col-md-8">
+                                <?php echo $utente['camere'] ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Numero di bagni:
+                            </div>
+                            <div class="col-md-8">
+                                <?php echo $utente['bagni'] ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Classe Energetica:
+                            </div>
+                            <div class="col-md-8">
+                                <?php if( $utente['classe_energetica'] ) {
+                                    echo $utente['classe_energetica'];
+                                } else {
+                                    echo '-';
+                                } ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Descrizione ulteriore:
+                            </div>
+                            <div class="col-md-8">
+                                <?php if( $utente['description'] ) {
+                                    echo $utente['description'];
+                                } else {
+                                    echo '-';
+                                } ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Arredamento:
+                            </div>
+                            <div class="col-md-8">
+                                <?php if( $utente['arredamento'] ) {
+                                    echo $utente['arredamento'];
+                                } else {
+                                    echo '-';
+                                } ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Posto Auto:
+                            </div>
+                            <div class="col-md-8">
+                                <?php if( $utente['pauto'] ) { ?>
+                                    <i class="fa  fa-check" style="color:green"></i>
+                                <?php } else { ?>
+                                    <i class="fa  fa-times" style="color:red"></i>
+                                <?php }  ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Garage:
+                            </div>
+                            <div class="col-md-8">
+                                <?php if( $utente['garage'] ) { ?>
+                                    <i class="fa  fa-check" style="color:green"></i>
+                                <?php } else { ?>
+                                    <i class="fa  fa-times" style="color:red"></i>
+                                <?php }  ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Giardino:
+                            </div>
+                            <div class="col-md-8">
+                                <?php if( $utente['giardino'] ) { ?>
+                                    <i class="fa  fa-check" style="color:green"></i>
+                                <?php } else { ?>
+                                    <i class="fa  fa-times" style="color:red"></i>
+                                <?php }  ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Balcone:
+                            </div>
+                            <div class="col-md-8">
+                                <?php if( $utente['balcone'] ) { ?>
+                                    <i class="fa  fa-check" style="color:green"></i>
+                                <?php } else { ?>
+                                    <i class="fa  fa-times" style="color:red"></i>
+                                <?php }  ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Terrazzo:
+                            </div>
+                            <div class="col-md-8">
+                                <?php if( $utente['terrazzo'] ) { ?>
+                                    <i class="fa  fa-check" style="color:green"></i>
+                                <?php } else { ?>
+                                    <i class="fa  fa-times" style="color:red"></i>
+                                <?php }  ?>
                             </div>
                         </div>
                         <div class="form-group">
@@ -90,19 +280,6 @@ include('./connection.php');
                             </div>
                             <div class="col-md-8">
                                 <?php echo $utente['reg_date'] ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-4">
-                                Modulo privacy:
-                            </div>
-                            <div class="col-md-8">
-                                <?php
-                                $uploadDir = __DIR__ . DIRECTORY_SEPARATOR . 'uploads';
-                                $new_dir_path = $uploadDir . DIRECTORY_SEPARATOR . $_GET['id'] . DIRECTORY_SEPARATOR . 'privacy';
-                                if(is_dir($new_dir_path)) { ?>
-                                <i class="fa fa-file-pdf-o"></i><a href="<?php echo DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . $_GET['id'] . DIRECTORY_SEPARATOR . 'privacy' . DIRECTORY_SEPARATOR . $_GET['id'] . '_privacy.pdf'; ?>" download="newfilename">modulo privacy</a>
-                                <?php } ?>
                             </div>
                         </div>
                     </fieldset>
@@ -128,6 +305,15 @@ include('./connection.php');
 
 <!-- Theme Initialization Files -->
 <script src="assets/javascripts/theme.init.js"></script>
-
+<script>
+    function deleteWarning() {
+        var r = confirm("Sei sicuro di volere eliminare questo elemento?\n" +
+            "In alternativa puoi archiviarlo andando in modifica e selezionando la voce 'non disponibile'. ");
+        if ( r ) {
+            var urlParams = new URLSearchParams(window.location.search);
+            window.location.href = `generic_delete.php?id=${urlParams.get('id')}`;
+        }
+    }
+</script>
 </body>
 </html>

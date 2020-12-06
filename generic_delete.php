@@ -2,10 +2,10 @@
 
 include('./connection.php');
 
-$sql = "DELETE FROM AgenziaImmobili WHERE id_immobile='". $_GET["id"]."'";
+$sql = "DELETE FROM AgenziaMZ WHERE id='". $_GET["id"]."'";
 
 if(mysqli_query($conn, $sql)) {
-    header('Location: immobili_list.php');
+    header('Location: index.php');
 }
 else {
     echo 'query error: '.mysqli_error($conn);
