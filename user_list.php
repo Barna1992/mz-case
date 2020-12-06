@@ -63,7 +63,7 @@
                         <div class="col-md-9">
                         <div class="form-group">
                             <?php
-                            $sql = "SELECT DISTINCT * FROM AgenziaClienti";
+                            $sql = "SELECT DISTINCT * FROM AgenziaMZ";
                             $result = mysqli_query($conn, $sql);
 
                             $utenti = mysqli_fetch_all($result, MYSQLI_ASSOC);
