@@ -70,53 +70,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $balcone = convertCheckBox($balcone);
     $disponibile = 1;
 
-    if ( !isset($_POST["id_cliente"]) ) {
-        $sql_cliente = "INSERT INTO AgenziaClienti (first_name, last_name, whole_name, birthdate, email, telephone, user_type) VALUES (
-'$first_name', '$last_name', '$whole_name', '$birthdate', '$email', '$telephone','$user_type')";
+    if ( !isset($_POST["id"]) ) {
+        $sql = "INSERT INTO AgenziaMZ (first_name, last_name, whole_name, birthdate, email, telephone, user_type,
+                       type_house, rif_num, immobile_vendita_paese, immobile_ricerca_paesi,
+ metratura, anno, prezzo, provvigione, locali, camere, bagni, classe_energetica, description, arredamento, pauto,
+  garage, giardino, balcone, terrazzo, disponibile) VALUES (
+'$first_name', '$last_name', '$whole_name', '$birthdate', '$email', '$telephone','$user_type',
+'$type_house', '$rif_num', '$immobile_vendita_paese', '$immobile_ricerca_paesi', '$metratura', '$anno', 
+ '$prezzo', '$provvigione', '$locali', '$camere', '$bagni', '$classe_energetica', '$description', '$arredamento',
+  '$pauto','$garage','$giardino', '$balcone', '$terrazzo','$disponibile')";
     }
     else {
-        $id_cliente =$_POST["id_cliente"];
-        $sql_cliente = "UPDATE AgenziaClienti SET first_name='$first_name', last_name='$last_name',
-whole_name='$whole_name', birthdate='$birthdate', email='$email', telephone='$telephone', user_type='$user_type' WHERE id_cliente='$id_cliente'";
+        $id =$_POST["id"];
+        $sql = "UPDATE AgenziaMZ SET first_name='$first_name', last_name='$last_name',
+        whole_name='$whole_name', birthdate='$birthdate', email='$email', telephone='$telephone', user_type='$user_type',
+        type_house='".$type_house."', rif_num='".$rif_num."', immobile_vendita_paese='".$immobile_vendita_paese."',
+        immobile_ricerca_paesi='".$immobile_ricerca_paesi."', metratura='".$metratura."', anno='".$anno."' 
+        prezzo='".$prezzo."', provvigione='".$provvigione."', locali='".$locali."', camere='".$camere."', 
+        bagni='".$bagni."', classe_energetica='".$classe_energetica."', description='".$description."',
+        arredamento='".$arredamento."', pauto=".$pauto.", garage=".$garage.", giardino=".$giardino.", balcone=".$balcone.",
+        terrazzo=".$terrazzo.", disponibile=".$disponibile." 
+                     WHERE id='$id'";
     }
-
+    echo $sql;
 }
-    if(mysqli_query($conn, $sql_cliente)) {
-        if ( !isset($_POST["id_cliente"]) ) {
+    if(mysqli_query($conn, $sql)) {
+        if ( !isset($_POST["id"]) ) {
             $last_id = $conn->insert_id;
         } else {
-            $last_id = $_POST["id_cliente"];
+            $last_id = $_POST["id"];
         }
-        $sql_immobile = "INSERT INTO AgenziaImmobili ( type_house, rif_num, immobile_vendita_paese, immobile_ricerca_paesi,
- metratura, anno, prezzo, provvigione, locali, camere, bagni, classe_energetica, description, arredamento, pauto,
-  garage, giardino, balcone, terrazzo, disponibile, id_cliente)
- VALUES ('$type_house', '$rif_num', '$immobile_vendita_paese', '$immobile_ricerca_paesi', '$metratura', '$anno', 
- '$prezzo', '$provvigione', '$locali', '$camere', '$bagni', '$classe_energetica', '$description', '$arredamento',
-  '$pauto','$garage','$giardino', '$balcone', '$terrazzo','$disponibile', '$last_id')";
-        echo $sql_immobile;
-        if(!mysqli_query($conn, $sql_immobile)) {
-            echo 'IMMOBILE error';
-            echo 'query error: '.mysqli_error($conn);
-        }
-        else {
-            header('Location: index.php');
-        }
+        header('Location: index.php');
     }
     else {
         echo 'query error: '.mysqli_error($conn);
     }
-
-//    $uploadDir = './uploads';
-//
-//    foreach ($_FILES as $file) {
-//        if (UPLOAD_ERR_OK === $file['error']) {
-//            $fileName = $conn->insert_id . '_privacy.pdf';
-//            $new_dir_path = $uploadDir . DIRECTORY_SEPARATOR . $conn->insert_id;
-//            if (!file_exists($new_dir_path)) {
-//                mkdir($new_dir_path, 0777, true);
-//            }
-//            move_uploaded_file($file['tmp_name'], $new_dir_path . DIRECTORY_SEPARATOR . $fileName);
-//        }
-//    }
 
 ?>
