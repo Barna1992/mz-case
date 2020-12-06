@@ -6,7 +6,7 @@ $(document).ready(function(){
     function load_data(query)
     {
         $.ajax({
-            url:"fetch_immobili.php",
+            url:"fetch_users.php",
             method:"POST",
             data:{query:query},
             success:function(data)

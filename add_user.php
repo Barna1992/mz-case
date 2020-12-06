@@ -16,12 +16,8 @@
     ?>
 
     <div class="inner-wrapper">
-        <?php
-            include('./sidebar.html');
-        ?>
-
-        <section role="main" class="content-body">
-            <header class="page-header">
+        <section role="main" class="content-body" style="margin-left:0px">
+            <header class="page-header" style="left:0px">
                 <h2>Aggiungi Utente e Immobile</h2>
             </header>
             <?php

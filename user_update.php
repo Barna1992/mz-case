@@ -22,19 +22,16 @@ include('./connection.php');
     include('./header.php');
     ?>
 
-    <div class="inner-wrapper">
+    <div class="inner-wrapper" >
 
-        <?php
-        include('./sidebar.html');
-        ?>
 
-        <form id="update_form" name="update_form" role="main" class="content-body" method="post" action="process.php">
+        <form id="update_form" name="update_form" role="main" class="content-body" method="post" action="process.php" style="margin-left:0px">
             <?php if($utente): ?>
-                <header class="page-header">
+                <header class="page-header" style="left:0px">
                     <h2>Appartamento riferito a <?php echo $utente['first_name'] .' '. $utente['last_name']?></h2>
                 </header>
             <?php else: ?>
-                <header class="page-header">
+                <header class="page-header" style="left:0px">
                     <h2>Appartamento inesistente</h2>
                 </header>
             <?php endif ?>

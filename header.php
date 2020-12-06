@@ -26,6 +26,22 @@
 
         <span class="separator"></span>
 
+        <ul class="notifications">
+            <li>
+                <a href="user_list.php" class="dropdown-toggle notification-icon" title="Tutti i records">
+                    <i class="fa fa-tasks"></i>
+                </a>
+            </li>
+            <li>
+                <a href="add_user.php" class="dropdown-toggle notification-icon" title="Aggiungi nuovo...">
+                    <i class="fa fa-plus"></i>
+                </a>
+
+            </li>
+        </ul>
+
+        <span class="separator"></span>
+
         <div id="userbox" class="userbox">
             <a href="#" data-toggle="dropdown">
                 <figure class="profile-picture">

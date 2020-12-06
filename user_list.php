@@ -14,19 +14,16 @@ include('./connection.php');
 
     <div class="inner-wrapper">
 
-        <?php
-            include('./filter.php');
-        ?>
 
-        <section role="main" class="content-body">
-            <header class="page-header">
+        <section role="main" class="content-body" style="margin-left:0px">
+            <header class="page-header" style="left:0px">
                 <h2>Utenti registrati</h2>
             </header>
 
             <div class="search-content">
                 <div class="search-control-wrapper">
                     <form action="#">
-                        <div class="col-md-9">
+                        <div class="col-md-10 col-md-offset-1">
                         <div class="form-group">
                             <?php
                             $sql = "SELECT DISTINCT * FROM AgenziaMZ";
@@ -36,7 +33,6 @@ include('./connection.php');
 
                             mysqli_free_result($result);
 
-                            mysqli_close($conn);
                             ?>
                             <div class="input-group">
                                 <input type="text" class="form-control" name="search_text" id="search_text" placeholder="Cerca utente">
@@ -52,11 +48,16 @@ include('./connection.php');
 
                 <div class="tab-content timeline">
                     <div id="everything" class="tab-pane active tm-body" style="margin-top: 80px;">
-                        <div class="tm-title">
-                            <h3 class="h5 text-uppercase"><?php echo count($utenti) ?> Clienti registrati</h3>
+                        <div class="col-md-8">
+                            <div class="tm-title">
+                                <h3 class="h5 text-uppercase"><?php echo count($utenti) ?> Clienti registrati</h3>
+                            </div>
+                            <ol class="list-unstyled search-results-list tm-items" id="result">
+                            </ol>
                         </div>
-                        <ol class="list-unstyled search-results-list tm-items" id="result">
-                        </ol>
+                        <?php
+                            include('./filter.php');
+                        ?>
                     </div>
                 </div>
             </div>
@@ -93,7 +94,7 @@ include('./connection.php');
 
 <!-- Theme Initialization Files -->
 <script src="assets/javascripts/theme.init.js"></script>
-<script src="assets/javascripts/forms/immobili_filters.js"></script>
+<script src="assets/javascripts/forms/user_searchbar.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 

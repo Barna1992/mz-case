@@ -24,17 +24,13 @@ include('./connection.php');
 
     <div class="inner-wrapper">
 
-        <?php
-        include('./sidebar.html');
-        ?>
-
-        <section role="main" class="content-body">
+        <section role="main" class="content-body" style="margin-left:0px">
             <?php if($utente): ?>
-            <header class="page-header">
+            <header class="page-header" style="left:0px">
                 <h2>Profilo utente: <?php echo $utente['first_name'] .' '. $utente['last_name']?></h2>
             </header>
             <?php else: ?>
-                <header class="page-header">
+                <header class="page-header" style="left:0px">
                     <h2>Utente inesistente</h2>
                 </header>
             <?php endif ?>

@@ -30,6 +30,14 @@ if (isset($_POST["action"])) {
         $sql .= " AND (locali BETWEEN " . $_POST["minimum_locali"] . " AND " . $_POST["maximum_locali"] . ")";
     }
 
+    if (isset($_POST["minimum_camere"], $_POST["maximum_camere"])  && !empty($_POST["maximum_camere"])) {
+        $sql .= " AND (camere BETWEEN " . $_POST["minimum_camere"] . " AND " . $_POST["maximum_camere"] . ")";
+    }
+
+    if (isset($_POST["minimum_bagni"], $_POST["maximum_bagni"])  && !empty($_POST["maximum_bagni"])) {
+        $sql .= " AND (bagni BETWEEN " . $_POST["minimum_bagni"] . " AND " . $_POST["maximum_bagni"] . ")";
+    }
+
     if (isset($_POST["classe_energetica"])) {
         $classe_energetica = implode("','", $_POST["classe_energetica"]);
         $sql .= " AND (classe_energetica IN ('".$classe_energetica."'))";
