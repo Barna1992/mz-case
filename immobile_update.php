@@ -2,9 +2,9 @@
 include('./connection.php');
 if(isset($_GET['id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['id']);
-    $sql = "SELECT * FROM AgenziaImmobili WHERE id_immobile = $id";
+    $sql = "SELECT * FROM AgenziaMZ WHERE id = $id";
     $result = mysqli_query($conn, $sql);
-    $immobile = mysqli_fetch_assoc($result);
+    $utente = mysqli_fetch_assoc($result);
     mysqli_free_result($result);
     mysqli_close($conn);
 }
@@ -28,10 +28,10 @@ include('./connection.php');
         include('./sidebar.html');
         ?>
 
-        <form id="immobile_update_form" name="immobile_update_form" role="main" class="content-body" method="post" action="process_immobile_update.php">
-            <?php if($immobile): ?>
+        <form id="update_form" name="update_form" role="main" class="content-body" method="post" action="process.php">
+            <?php if($utente): ?>
                 <header class="page-header">
-                    <h2>Appartamento riferito a <?php echo $immobile['first_name'] .' '. $immobile['last_name']?></h2>
+                    <h2>Appartamento riferito a <?php echo $utente['first_name'] .' '. $utente['last_name']?></h2>
                 </header>
             <?php else: ?>
                 <header class="page-header">
@@ -39,6 +39,30 @@ include('./connection.php');
                 </header>
             <?php endif ?>
             <div id="w4-profile" class="tab-pane">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="first_name">Nome</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="first_name" id="first_name" value="<?php echo $utente['first_name'] ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="last_name">Cognome</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="last_name" id="last_name" value="<?php echo $utente['last_name'] ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="email">email</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="email" id="email" value="<?php echo $utente['email'] ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="telephone">Telefono</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="telephone" id="telephone" value="<?php echo $utente['telephone'] ?>">
+                    </div>
+                </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="inputSuccess">Tipologia</label>
                         <div class="col-sm-6">
@@ -51,9 +75,9 @@ include('./connection.php');
                             </select>
                         </div>
                     </div>
-                    <?php if( !empty($immobile['immobile_vendita_paese'])) { ?>
+                    <?php if( !empty($utente['immobile_vendita_paese'])) { ?>
                     <div class="form-group" id="div_immobile_vendita_paese">
-                        <label class="col-sm-3 control-label" for="immobile_vendita_paese">Paese</label>
+                        <label class="col-sm-3 control-label" for="immobile_vendita_paese">Località</label>
                         <div class="col-sm-6">
                             <select class="form-control" name="immobile_vendita_paese" id="immobile_vendita_paese" required>
                                 <optgroup label="Borca">
@@ -107,20 +131,33 @@ include('./connection.php');
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="rif_num">Rif Num</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" name="rif_num" id="rif_num" value="<?php echo $immobile['rif_num'] ?>">
+                            <input type="text" class="form-control" name="rif_num" id="rif_num" value="<?php echo $utente['rif_num'] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="metratura">Metratura</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" name="metratura" id="metratura" value="<?php echo $immobile['metratura'] ?>">
+                            <input type="text" class="form-control" name="metratura" id="metratura" value="<?php echo $utente['metratura'] ?>">
                         </div>
                         m<sup>2</sup>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-3 control-label" for="anno">Anno</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" name="anno" id="anno" value="<?php echo $utente['anno'] ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-3 control-label" for="prezzo">Prezzo</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" name="prezzo" id="prezzo" value="<?php echo $immobile['prezzo'] ?>">
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" name="prezzo" id="prezzo" value="<?php echo $utente['prezzo'] ?>">
+                        </div>
+                        <span>&#8364;</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="provvigione">Provvigione</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" name="provvigione" id="provvigione" value="<?php echo $utente['provvigione'] ?>">
                         </div>
                     </div>
                     <div class="form-group">
@@ -130,8 +167,8 @@ include('./connection.php');
                                 <option value="">----</option>
                                 <?php
                                 for($i = 1; $i <= 10; $i++) {
-                                    echo $immobile['locali'];
-                                    if( intval($i) == intval($immobile['locali'])){
+                                    echo $utente['locali'];
+                                    if( intval($i) == intval($utente['locali'])){
                                         echo '<option selected="selected" value="' . $i . '">' . $i . '</option>';
                                     }
                                     else {
@@ -142,6 +179,44 @@ include('./connection.php');
                             </select>
                         </div>
                     </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="camere">Numero di camere</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" name="camere" id="camere">
+                            <option value="">----</option>
+                            <?php
+                            for($i = 1; $i <= 10; $i++) {
+                                echo $utente['camere'];
+                                if( intval($i) == intval($utente['camere'])){
+                                    echo '<option selected="selected" value="' . $i . '">' . $i . '</option>';
+                                }
+                                else {
+                                    echo '<option value="' . $i . '">' . $i . '</option>';
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="bagni">Numero di bagni</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" name="bagni" id="bagni">
+                            <option value="">----</option>
+                            <?php
+                            for($i = 1; $i <= 10; $i++) {
+                                echo $utente['bagni'];
+                                if( intval($i) == intval($utente['bagni'])){
+                                    echo '<option selected="selected" value="' . $i . '">' . $i . '</option>';
+                                }
+                                else {
+                                    echo '<option value="' . $i . '">' . $i . '</option>';
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="classe_energetica">Classe energetica</label>
                         <div class="col-sm-2">
@@ -160,7 +235,7 @@ include('./connection.php');
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="descrizione">Descrizione</label>
                         <div class="col-md-9">
-                            <textarea form="immobile_update_form" class="form-control" rows="3" id="descrizione" name="descrizione" data-plugin-textarea-autosize="" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 86px;" ><?php echo $immobile['description'] ?></textarea>
+                            <textarea form="update_form" class="form-control" rows="3" id="descrizione" name="descrizione" data-plugin-textarea-autosize="" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 86px;" ><?php echo $utente['description'] ?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -179,8 +254,16 @@ include('./connection.php');
                         <div class="col-md-6">
                             <div class="checkbox">
                                 <label>
+                                    <input type="checkbox" value="pauto" name="pauto" class="info-aggiuntive"
+                                        <?php if($utente['pauto']) { echo 'checked'; }?>
+                                    >
+                                    Posto auto
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
                                     <input type="checkbox" value="garage" name="garage" class="info-aggiuntive"
-                                    <?php if($immobile['garage']) { echo 'checked'; }?>
+                                    <?php if($utente['garage']) { echo 'checked'; }?>
                                     >
                                     Garage
                                 </label>
@@ -188,7 +271,7 @@ include('./connection.php');
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" value="giardino" name="giardino" class="info-aggiuntive"
-                                        <?php if($immobile['giardino']) { echo 'checked'; }?>
+                                        <?php if($utente['giardino']) { echo 'checked'; }?>
                                     >
                                     Giardino
                                 </label>
@@ -196,7 +279,7 @@ include('./connection.php');
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" value="balcone" name="balcone" class="info-aggiuntive"
-                                        <?php if($immobile['balcone']) { echo 'checked'; }?>
+                                        <?php if($utente['balcone']) { echo 'checked'; }?>
                                     >
                                     Balcone
                                 </label>
@@ -204,7 +287,7 @@ include('./connection.php');
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" value="terrazzo" name="terrazzo" class="info-aggiuntive"
-                                        <?php if($immobile['terrazzo']) { echo 'checked'; }?>
+                                        <?php if($utente['terrazzo']) { echo 'checked'; }?>
                                     >
                                     Terrazzo
                                 </label>
@@ -212,7 +295,7 @@ include('./connection.php');
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" value="disponibile" name="disponibile" class="info-aggiuntive"
-                                        <?php if($immobile['disponibile']) { echo 'checked'; }?>
+                                        <?php if($utente['disponibile']) { echo 'checked'; }?>
                                     >
                                     Disponibile
                                 </label>
@@ -220,7 +303,7 @@ include('./connection.php');
                         </div>
                     </div>
             </div>
-            <input type="hidden" class="form-control" name="immobile_id" id="immobile_id" value="<?php echo $_GET['id'] ?>">
+            <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $_GET['id'] ?>">
             <div class="panel-footer">
                 <ul class="pager">
                     <li class="finish pull-right salva-form">
@@ -250,12 +333,12 @@ include('./connection.php');
 <!-- Theme Initialization Files -->
 <script src="assets/javascripts/theme.init.js"></script>
 <script>
-    document.getElementById('type_house').value='<?php echo $immobile['type_house']?>';
-    document.getElementById('locali').selectedIndex=<?php echo $immobile['locali']?>;
-    document.getElementById('classe_energetica').value='<?php echo $immobile['classe_energetica']?>';
-    document.getElementById('arredamento').value='<?php echo $immobile['arredamento']?>';
-    <?php if( !empty($immobile['immobile_vendita_paese'])) { ?>
-    document.getElementById('immobile_vendita_paese').value='<?php echo $immobile['immobile_vendita_paese']?>';
+    document.getElementById('type_house').value='<?php echo $utente['type_house']?>';
+    document.getElementById('locali').selectedIndex=<?php echo $utente['locali']?>;
+    document.getElementById('classe_energetica').value='<?php echo $utente['classe_energetica']?>';
+    document.getElementById('arredamento').value='<?php echo $utente['arredamento']?>';
+    <?php if( !empty($utente['immobile_vendita_paese'])) { ?>
+    document.getElementById('immobile_vendita_paese').value='<?php echo $utente['immobile_vendita_paese']?>';
     <?php } else { ?>
     <?php } ?>
 </script>

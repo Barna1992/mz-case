@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "UPDATE AgenziaMZ SET first_name='$first_name', last_name='$last_name',
         whole_name='$whole_name', birthdate='$birthdate', email='$email', telephone='$telephone', user_type='$user_type',
         type_house='".$type_house."', rif_num='".$rif_num."', immobile_vendita_paese='".$immobile_vendita_paese."',
-        immobile_ricerca_paesi='".$immobile_ricerca_paesi."', metratura='".$metratura."', anno='".$anno."' 
+        immobile_ricerca_paesi='".$immobile_ricerca_paesi."', metratura='".$metratura."', anno='".$anno."', 
         prezzo='".$prezzo."', provvigione='".$provvigione."', locali='".$locali."', camere='".$camere."', 
         bagni='".$bagni."', classe_energetica='".$classe_energetica."', description='".$description."',
         arredamento='".$arredamento."', pauto=".$pauto.", garage=".$garage.", giardino=".$giardino.", balcone=".$balcone.",
@@ -97,10 +97,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(mysqli_query($conn, $sql)) {
         if ( !isset($_POST["id"]) ) {
             $last_id = $conn->insert_id;
+            header('Location: index.php');
         } else {
             $last_id = $_POST["id"];
+            header('Location: user_details.php?id='. $last_id);
         }
-        header('Location: index.php');
+
     }
     else {
         echo 'query error: '.mysqli_error($conn);
