@@ -63,7 +63,7 @@
 
     <div class="form-group">
         <label class="col-sm-3 control-label" for="rif_num">Rif</label>
-        <div class="col-sm-9">
+        <div class="col-sm-2">
             <input type="text" class="form-control" name="rif_num" id="rif_num">
         </div>
     </div>
@@ -82,13 +82,13 @@
     </div>
     <div class="form-group">
         <label class="col-sm-3 control-label" for="prezzo">Offerta</label>
-        <div class="col-sm-9">
+        <div class="col-sm-2">
             <input type="text" class="form-control" name="prezzo" id="prezzo">
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-3 control-label" for="provvigione">Tipo di provvigione</label>
-        <div class="col-sm-9">
+        <div class="col-sm-2">
             <input type="text" class="form-control" name="provvigione" id="provvigione">
         </div>
     </div>

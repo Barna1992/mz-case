@@ -17,7 +17,7 @@ include('./connection.php');
 
         <section role="main" class="content-body" style="margin-left:0px">
             <header class="page-header" style="left:0px">
-                <h2>Utenti registrati</h2>
+                <h2>Clienti registrati</h2>
             </header>
 
             <div class="search-content">
@@ -35,7 +35,7 @@ include('./connection.php');
 
                             ?>
                             <div class="input-group">
-                                <input type="text" class="form-control" name="search_text" id="search_text" placeholder="Cerca utente">
+                                <input type="text" class="form-control" name="search_text" id="search_text" placeholder="Cerca per nome o cognome...">
                                 <span class="input-group-btn">
 											<button class="btn btn-primary" type="button">Cerca</button>
                                 </span>

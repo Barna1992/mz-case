@@ -18,7 +18,7 @@
     <div class="inner-wrapper">
         <section role="main" class="content-body" style="margin-left:0px">
             <header class="page-header" style="left:0px">
-                <h2>Aggiungi Utente e Immobile</h2>
+                <h2>Aggiungi cliente</h2>
             </header>
             <?php
                 include('./connection.php');
@@ -33,7 +33,7 @@
                                 <a href="#" class="fa fa-times"></a>
                             </div>
 
-                            <h2 class="panel-title">Aggiungi Utente e Immobile</h2>
+                            <h2 class="panel-title">Aggiungi cliente</h2>
                         </header>
                         <div class="panel-body">
                             <div class="wizard-progress wizard-progress-lg">

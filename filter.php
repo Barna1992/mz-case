@@ -107,7 +107,7 @@
             <div id="bagni_range"></div>
         </div>
         <div class="list-group">
-            <h3>Localita</h3>
+            <h3>Località</h3>
             <div style="overflow-y: auto; overflow-x: hidden;">
                 <?php
 
@@ -172,7 +172,7 @@
         </div>
         <div class="list-group">
             <h3>Informazioni aggiuntive</h3>
-            <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
+            <div style="overflow-y: auto; overflow-x: hidden;">
                 <div class="list-group-item checkbox">
                     <label><input type="checkbox" class="common_selector info_aggiuntive pauto" value="pauto"  > Posto Auto</label>
                 </div>
@@ -196,7 +196,6 @@
     $(document).ready(function(){
 
         filter_data();
-
         function filter_data(search='')
         {
             $('.filter_data').html('<div id="loading" style="" ></div>');
@@ -334,5 +333,11 @@
                 filter_data();
             }
         });
+        hide_sliders();
+        function hide_sliders() {
+            if ( $('#bagni_range').slider("option", "max") == 1 ) $('#bagni_range').parent().hide();
+            if ( $('#camere_range').slider("option", "max") == 1 ) $('#camere_range').parent().hide();
+            if ( $('#locali_range').slider("option", "max") == 1 ) $('#locali_range').parent().hide();
+        }
     });
 </script>
