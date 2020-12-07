@@ -1,6 +1,6 @@
-<div class="col-md-4" style="border: 1px solid #0088cc">
+<div class="col-md-4" style="border: 1px solid #0088cc; padding-left: 30px; padding-right: 30px;">
         <div class="list-group">
-            <h3>Prezzo</h3>
+            <h3 style="text-align: center">Prezzo</h3>
             <?php
             $sql = "SELECT MIN(CAST(prezzo as signed)) as MIN, MAX(CAST(prezzo as signed)) as MAX FROM AgenziaMZ;";
             $result = mysqli_query($conn, $sql);
@@ -11,7 +11,7 @@
             ?>
             <input type="hidden" id="hidden_minimum_price" value="0" />
             <input type="hidden" id="hidden_maximum_price" value="<?php echo $prezzi[0]["MAX"] ?>" />
-            <p id="price_show"><?php
+            <p id="price_show" style="text-align: center"><?php
                 foreach ($prezzi as $prezzo) {
                     echo 0;
                     echo ' - ';
@@ -21,7 +21,7 @@
             <div id="price_range"></div>
         </div>
         <div class="list-group">
-            <h3>Metratura</h3>
+            <h3 style="text-align: center">Metratura</h3>
             <?php
             $sql = "SELECT MAX(CAST(metratura as signed)) as MAX FROM AgenziaMZ";
             $result = mysqli_query($conn, $sql);
@@ -32,7 +32,7 @@
             ?>
             <input type="hidden" id="hidden_minimum_metratura" value="0" />
             <input type="hidden" id="hidden_maximum_metratura" value="<?php echo $metratura[0]['MAX']?>" />
-            <p id="metratura_show"><?php
+            <p id="metratura_show" style="text-align: center"><?php
                 foreach ($metratura as $met) {
                     echo 0;
                     echo ' - ';
@@ -42,7 +42,7 @@
             <div id="metratura_range"></div>
         </div>
         <div class="list-group">
-            <h3>Numero di locali</h3>
+            <h3 style="text-align: center">Numero di locali</h3>
             <?php
             $sql = "SELECT MAX(CAST(locali as signed)) as MAX FROM AgenziaMZ";
             $result = mysqli_query($conn, $sql);
@@ -53,7 +53,7 @@
             ?>
             <input type="hidden" id="hidden_minimum_locali" value="1" />
             <input type="hidden" id="hidden_maximum_locali" value="<?php echo $locali[0]["MAX"] ?>" />
-            <p id="locali_show"><?php
+            <p id="locali_show" style="text-align: center"><?php
                 foreach ($locali as $locale) {
                     echo 1;
                     echo ' - ';
@@ -64,7 +64,7 @@
         </div>
         <br/>
         <div class="list-group">
-            <h3>Numero di camere</h3>
+            <h3 style="text-align: center">Numero di camere</h3>
             <?php
             $sql = "SELECT MAX(CAST(camere as signed)) as MAX FROM AgenziaMZ";
             $result = mysqli_query($conn, $sql);
@@ -75,7 +75,7 @@
             ?>
             <input type="hidden" id="hidden_minimum_camere" value="1" />
             <input type="hidden" id="hidden_maximum_camere" value="<?php echo $camere[0]["MAX"] ?>" />
-            <p id="camere_show"><?php
+            <p id="camere_show" style="text-align: center"><?php
                 foreach ($camere as $camera) {
                     echo 1;
                     echo ' - ';
@@ -86,7 +86,7 @@
         </div>
         <br>
         <div class="list-group">
-            <h3>Numero di bagni</h3>
+            <h3 style="text-align: center">Numero di bagni</h3>
             <?php
             $sql = "SELECT MAX(CAST(bagni as signed)) as MAX FROM AgenziaMZ";
             $result = mysqli_query($conn, $sql);
@@ -97,7 +97,7 @@
             ?>
             <input type="hidden" id="hidden_minimum_bagni" value="1" />
             <input type="hidden" id="hidden_maximum_bagni" value="<?php echo $bagni[0]["MAX"] ?>" />
-            <p id="bagni_show"><?php
+            <p id="bagni_show" style="text-align: center"><?php
                 foreach ($bagni as $bagno) {
                     echo 1;
                     echo ' - ';
@@ -107,7 +107,7 @@
             <div id="bagni_range"></div>
         </div>
         <div class="list-group">
-            <h3>Località</h3>
+            <h3 style="text-align: center">Località</h3>
             <div style="overflow-y: auto; overflow-x: hidden;">
                 <?php
 
@@ -128,7 +128,7 @@
             </div>
         </div>
         <div class="list-group">
-            <h3>Classe Energetica</h3>
+            <h3 style="text-align: center">Classe Energetica</h3>
             <div style="overflow-y: auto; overflow-x: hidden;">
                 <?php
 
@@ -149,7 +149,7 @@
             </div>
         </div>
         <div class="list-group">
-            <h3>Arredamento</h3>
+            <h3 style="text-align: center">Arredamento</h3>
             <div style="overflow-y: auto; overflow-x: hidden;">
                 <?php
 
@@ -171,7 +171,7 @@
             </div>
         </div>
         <div class="list-group">
-            <h3>Informazioni aggiuntive</h3>
+            <h3 style="text-align: center">Informazioni aggiuntive</h3>
             <div style="overflow-y: auto; overflow-x: hidden;">
                 <div class="list-group-item checkbox">
                     <label><input type="checkbox" class="common_selector info_aggiuntive pauto" value="pauto"  > Posto Auto</label>
