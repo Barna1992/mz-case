@@ -197,7 +197,7 @@
 
         filter_data();
 
-        function filter_data()
+        function filter_data(search='')
         {
             $('.filter_data').html('<div id="loading" style="" ></div>');
             var action = 'fetch_data';
@@ -215,11 +215,12 @@
             var immobile_vendita_paese = get_filter('immobile_vendita_paese');
             var arredamento = get_filter('arredamento');
             var info_aggiuntive = get_filter('info_aggiuntive');
+            var query = search ? search : $('#search_text').val();
 
             $.ajax({
                 url:"fetch_users.php",
                 method:"POST",
-                data:{action:action, user_type:'', minimum_price:minimum_price,
+                data:{action:action, query:query, user_type:'', minimum_price:minimum_price,
                     maximum_price:maximum_price, classe_energetica:classe_energetica,
                     immobile_vendita_paese:immobile_vendita_paese,
                     arredamento:arredamento, info_aggiuntive:info_aggiuntive,
@@ -245,6 +246,18 @@
 
         $('.common_selector').click(function(e){
             filter_data();
+        });
+
+        $('#search_text').keyup(function(){
+            var search = $(this).val();
+            if(search != '')
+            {
+                filter_data(search);
+            }
+            else
+            {
+                filter_data();
+            }
         });
 
         $('#price_range').slider({
