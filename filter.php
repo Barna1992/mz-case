@@ -174,6 +174,9 @@
             <h3>Informazioni aggiuntive</h3>
             <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
                 <div class="list-group-item checkbox">
+                    <label><input type="checkbox" class="common_selector info_aggiuntive pauto" value="pauto"  > Posto Auto</label>
+                </div>
+                <div class="list-group-item checkbox">
                     <label><input type="checkbox" class="common_selector info_aggiuntive garage" value="garage"  > Garage</label>
                 </div>
                 <div class="list-group-item checkbox">
@@ -240,7 +243,7 @@
             return filter;
         }
 
-        $('.common_selector').click(function(){
+        $('.common_selector').click(function(e){
             filter_data();
         });
 

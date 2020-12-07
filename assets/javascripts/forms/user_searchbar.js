@@ -28,10 +28,6 @@ $(document).ready(function(){
         }
     });
 
-    $('input[type="checkbox"]').change( ()=> {
-        load_data($('#search_text').val());
-    })
-
     function get_filter(class_name)
     {
         var filter = [];
