@@ -149,7 +149,7 @@
     <div class="form-group">
         <label class="col-sm-3 control-label" for="description">Descrizione</label>
         <div class="col-md-9">
-            <textarea class="form-control" rows="3" id="description" data-plugin-textarea-autosize="" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 86px;"></textarea>
+            <textarea class="form-control" rows="3" id="description" name="description" data-plugin-textarea-autosize="" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 86px;"></textarea>
         </div>
     </div>
     <div class="form-group">
