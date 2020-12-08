@@ -230,9 +230,9 @@ include('./connection.php');
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="descrizione">Descrizione</label>
+                        <label class="col-sm-3 control-label" for="description">Descrizione</label>
                         <div class="col-md-9">
-                            <textarea form="update_form" class="form-control" rows="3" id="descrizione" name="descrizione" data-plugin-textarea-autosize="" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 86px;" ><?php echo $utente['description'] ?></textarea>
+                            <textarea form="update_form" class="form-control" rows="3" id="description" name="description" data-plugin-textarea-autosize="" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 86px;" ><?php echo $utente['description'] ?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
