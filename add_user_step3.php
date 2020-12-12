@@ -42,9 +42,9 @@
             <input type="text" value="" id="address_ReadOnly" class="form-control" readonly="readonly">
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-md-3 control-label" for="rif_num_ReadOnly">Rif Num</label>
-        <div class="col-md-6">
+    <div class="form-group" style="display: none">
+        <label class="col-md-3 control-label" for="rif_num_ReadOnly" style="display: none">Rif Num</label>
+        <div class="col-md-6" style="display: none">
             <input type="text" value="" id="rif_num_ReadOnly" class="form-control" readonly="readonly">
         </div>
     </div>

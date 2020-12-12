@@ -45,7 +45,7 @@
                                         <a href="#w4-account" data-toggle="tab"><span>1</span>Generale</a>
                                     </li>
                                     <li>
-                                        <a href="#w4-profile" data-toggle="tab"><span>2</span>Immobile</a>
+                                        <a href="#w4-profile" data-toggle="tab"><span>2</span>Cosa cerca</a>
                                     </li>
                                     <li>
                                         <a href="#w4-confirm" data-toggle="tab"><span>3</span>Conferma</a>
@@ -72,13 +72,13 @@
                         <div class="panel-footer">
                             <ul class="pager">
                                 <li class="previous disabled">
-                                    <a><i class="fa fa-angle-left"></i> Previous</a>
+                                    <a><i class="fa fa-angle-left"></i> Indietro</a>
                                 </li>
                                 <li class="finish hidden pull-right">
                                     <a class="salva-form">Salva</a>
                                 </li>
                                 <li class="next">
-                                    <a>Next <i class="fa fa-angle-right"></i></a>
+                                    <a>Avanti <i class="fa fa-angle-right"></i></a>
                                 </li>
                             </ul>
                         </div>

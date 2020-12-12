@@ -61,9 +61,9 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="col-sm-3 control-label" for="rif_num">Rif</label>
-        <div class="col-sm-2">
+    <div class="form-group" style="display: none">
+        <label class="col-sm-3 control-label" for="rif_num" style="display: none">Rif</label>
+        <div class="col-sm-2" style="display: none">
             <input type="text" class="form-control" name="rif_num" id="rif_num">
         </div>
     </div>
@@ -81,7 +81,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label" for="prezzo">Offerta</label>
+        <label class="col-sm-3 control-label" for="prezzo">Budget</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="prezzo" id="prezzo">
         </div>
@@ -147,7 +147,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label" for="description">Descrizione</label>
+        <label class="col-sm-3 control-label" for="description">Note</label>
         <div class="col-md-9">
             <textarea class="form-control" rows="3" id="description" name="description" data-plugin-textarea-autosize="" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 86px;"></textarea>
         </div>
