@@ -62,7 +62,18 @@ if (isset($_POST["action"])) {
 
 }
 
-$sql .= " ORDER BY id DESC ";
+if (isset($_POST["ordering"])) {
+    if($_POST["ordering"]=='datainserimento') {
+        $sql .= " ORDER BY id DESC ";
+    }
+    else {
+        $sql .= " ORDER BY whole_name ASC ";
+    }
+}
+else {
+    $sql .= " ORDER BY id DESC ";
+}
+
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0)

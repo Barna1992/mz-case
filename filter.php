@@ -1,5 +1,18 @@
 <div class="col-md-4" style="border: 1px solid #0088cc; padding-left: 30px; padding-right: 30px;">
         <div class="list-group">
+            <h3 style="text-align: center">Ordinamento</h3>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="ordering" id="datainserimento" value="datainserimento" checked>
+                    Data di inserimento
+                </label>
+                <label>
+                    <input type="radio" name="ordering" id="nominativo" value="nominativo">
+                    Nominativo
+                </label>
+            </div>
+        </div>
+        <div class="list-group">
             <h3 style="text-align: center">Prezzo</h3>
             <?php
             $sql = "SELECT MIN(CAST(prezzo as signed)) as MIN, MAX(CAST(prezzo as signed)) as MAX FROM AgenziaMZ;";
@@ -215,6 +228,7 @@
             var arredamento = get_filter('arredamento');
             var info_aggiuntive = get_filter('info_aggiuntive');
             var query = search ? search : $('#search_text').val();
+            var ordering = $('input[name=ordering]:checked').val();
 
             $.ajax({
                 url:"fetch_users.php",
@@ -226,7 +240,8 @@
                     minimum_metratura:minimum_metratura, maximum_metratura: maximum_metratura,
                     minimum_locali:minimum_locali, maximum_locali:maximum_locali,
                     minimum_camere:minimum_camere, maximum_camere:maximum_camere,
-                    minimum_bagni:minimum_bagni, maximum_bagni:maximum_bagni
+                    minimum_bagni:minimum_bagni, maximum_bagni:maximum_bagni,
+                    ordering:ordering
                 },
                 success:function(data){
                     $('#result').html(data);
@@ -244,6 +259,10 @@
         }
 
         $('.common_selector').click(function(e){
+            filter_data();
+        });
+
+        $('input[type=radio]').change( () => {
             filter_data();
         });
 
