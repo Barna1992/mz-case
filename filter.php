@@ -1,6 +1,6 @@
-<div class="col-md-4" style="border: 1px solid #0088cc; padding-left: 30px; padding-right: 30px;">
+<div class="col-md-4" style="border: 1px solid #0088cc; padding-left: 30px; padding-right: 30px;position: fixed;right: 0;top: 30%; max-height: 400px; overflow: scroll">
         <div class="list-group">
-            <h3 style="text-align: center">Ordinamento</h3>
+            <h3 style="text-align: center;" >Ordinamento</h3>
             <div class="radio">
                 <label>
                     <input type="radio" name="ordering" id="datainserimento" value="datainserimento" checked>
@@ -203,7 +203,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </>
 
 <script>
     $(document).ready(function(){
