@@ -54,6 +54,9 @@ include('./connection.php');
                             </div>
                             <ol class="list-unstyled search-results-list tm-items" id="result">
                             </ol>
+                            <br/>
+                            <br/>
+                            <br/>
                         </div>
                         <?php
                             include('./filter.php');

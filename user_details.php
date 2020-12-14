@@ -320,8 +320,7 @@ include('./connection.php');
 <script src="assets/javascripts/theme.init.js"></script>
 <script>
     function deleteWarning() {
-        var r = confirm("Sei sicuro di volere eliminare questo elemento?\n" +
-            "In alternativa puoi archiviarlo andando in modifica e selezionando la voce 'non disponibile'. ");
+        var r = confirm("Sei sicuro di volere eliminare questo elemento?\n" );
         if ( r ) {
             var urlParams = new URLSearchParams(window.location.search);
             window.location.href = `generic_delete.php?id=${urlParams.get('id')}`;
