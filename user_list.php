@@ -23,7 +23,7 @@ include('./connection.php');
             <div class="search-content">
                 <div class="search-control-wrapper">
                     <form action="#">
-                        <div class="col-md-10 col-md-offset-1">
+                        <div class="col-md-7 col-md-offset-1">
                         <div class="form-group">
                             <?php
                             $sql = "SELECT DISTINCT * FROM AgenziaMZ";
