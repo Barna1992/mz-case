@@ -23,7 +23,7 @@ include('./connection.php');
             <div class="search-content">
                 <div class="search-control-wrapper">
                     <form action="#">
-                        <div class="col-md-7 col-md-offset-1">
+                        <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1 col-xs-7 col-xs-offset-1">
                         <div class="form-group">
                             <?php
                             $sql = "SELECT DISTINCT * FROM AgenziaMZ";
@@ -48,7 +48,7 @@ include('./connection.php');
 
                 <div class="tab-content timeline">
                     <div id="everything" class="tab-pane active tm-body" style="margin-top: 80px;">
-                        <div class="col-md-8">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                             <div class="tm-title">
                                 <h3 class="h5 text-uppercase"><?php echo count($utenti) ?> Clienti registrati</h3>
                             </div>

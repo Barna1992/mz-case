@@ -1,4 +1,4 @@
-<div class="col-md-4" style="border: 1px solid #0088cc;background-color:white; padding-left: 30px; padding-right: 30px;position: fixed;right: 0;top: 115px; max-height: 80vh;margin-bottom: 40px; overflow: scroll">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="border: 1px solid #0088cc;background-color:white; padding-left: 30px; padding-right: 30px;position: fixed;right: 0;top: 115px; max-height: 80vh;margin-bottom: 40px; overflow: scroll">
         <div class="list-group">
             <h3 style="text-align: center;" >Ordinamento</h3>
             <div class="radio">

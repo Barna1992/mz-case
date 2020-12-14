@@ -37,32 +37,32 @@ include('./connection.php');
             <?php endif ?>
             <div id="w4-profile" class="tab-pane">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="first_name">Nome</label>
-                    <div class="col-sm-4">
+                    <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="first_name">Nome</label>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="first_name" id="first_name" value="<?php echo $utente['first_name'] ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="last_name">Cognome</label>
-                    <div class="col-sm-4">
+                    <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="last_name">Cognome</label>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="last_name" id="last_name" value="<?php echo $utente['last_name'] ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="email">email</label>
-                    <div class="col-sm-4">
+                    <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="email">email</label>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="email" id="email" value="<?php echo $utente['email'] ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="telephone">Telefono</label>
-                    <div class="col-sm-4">
+                    <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="telephone">Telefono</label>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="telephone" id="telephone" value="<?php echo $utente['telephone'] ?>">
                     </div>
                 </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="inputSuccess">Tipologia</label>
-                        <div class="col-sm-6">
+                        <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="inputSuccess">Tipologia</label>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <select class="form-control" name="type_house" id="type_house" required>
                                 <option value="appartamento">Appartamenti</option>
                                 <option value="villa">Ville</option>
@@ -74,8 +74,8 @@ include('./connection.php');
                     </div>
                     <?php if( !empty($utente['immobile_vendita_paese'])) { ?>
                     <div class="form-group" id="div_immobile_vendita_paese">
-                        <label class="col-sm-3 control-label" for="immobile_vendita_paese">Località</label>
-                        <div class="col-sm-6">
+                        <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="immobile_vendita_paese">Località</label>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <select class="form-control" name="immobile_vendita_paese" id="immobile_vendita_paese" required>
                                 <optgroup label="Borca">
                                     <option value="Borca">Borca</option>
@@ -126,40 +126,40 @@ include('./connection.php');
                     </div>
                     <?php } ?>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="rif_num">Rif Num</label>
-                        <div class="col-sm-2">
+                        <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="rif_num">Rif Num</label>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                             <input type="text" class="form-control" name="rif_num" id="rif_num" value="<?php echo $utente['rif_num'] ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="metratura">Metratura</label>
-                        <div class="col-sm-2">
+                        <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="metratura">Metratura</label>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                             <input type="text" class="form-control" name="metratura" id="metratura" value="<?php echo $utente['metratura'] ?>">
                         </div>
                         m<sup>2</sup>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="anno">Anno</label>
-                        <div class="col-sm-2">
+                        <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="anno">Anno</label>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                             <input type="text" class="form-control" name="anno" id="anno" value="<?php echo $utente['anno'] ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="prezzo">Prezzo</label>
-                        <div class="col-sm-2">
+                        <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="prezzo">Prezzo</label>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                             <input type="text" class="form-control" name="prezzo" id="prezzo" value="<?php echo $utente['prezzo'] ?>">
                         </div>
                         <span>&#8364;</span>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="provvigione">Provvigione</label>
-                        <div class="col-sm-2">
+                        <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="provvigione">Provvigione</label>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                             <input type="text" class="form-control" name="provvigione" id="provvigione" value="<?php echo $utente['provvigione'] ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="locali">Numero di locali</label>
-                        <div class="col-sm-2">
+                        <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="locali">Numero di locali</label>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                             <select class="form-control" name="locali" id="locali">
                                 <option value="">----</option>
                                 <?php
@@ -177,8 +177,8 @@ include('./connection.php');
                         </div>
                     </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="camere">Numero di camere</label>
-                    <div class="col-sm-2">
+                    <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="camere">Numero di camere</label>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                         <select class="form-control" name="camere" id="camere">
                             <option value="">----</option>
                             <?php
@@ -196,8 +196,8 @@ include('./connection.php');
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="bagni">Numero di bagni</label>
-                    <div class="col-sm-2">
+                    <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="bagni">Numero di bagni</label>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                         <select class="form-control" name="bagni" id="bagni">
                             <option value="">----</option>
                             <?php
@@ -215,8 +215,8 @@ include('./connection.php');
                     </div>
                 </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="classe_energetica">Classe energetica</label>
-                        <div class="col-sm-2">
+                        <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="classe_energetica">Classe energetica</label>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                             <select class="form-control" name="classe_energetica" id="classe_energetica">
                                 <option value="">----</option>
                                 <option value="a">A</option>
@@ -230,14 +230,14 @@ include('./connection.php');
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="description">Descrizione</label>
+                        <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="description">Descrizione</label>
                         <div class="col-md-9">
                             <textarea form="update_form" class="form-control" rows="3" id="description" name="description" data-plugin-textarea-autosize="" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 86px;" ><?php echo $utente['description'] ?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="arredamento">Arredamento</label>
-                        <div class="col-sm-3">
+                        <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="arredamento">Arredamento</label>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <select class="form-control" name="arredamento" id="arredamento">
                                 <option value="arredato">Arredato</option>
                                 <option value="non arredato">Non arredato</option>

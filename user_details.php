@@ -40,7 +40,7 @@ include('./connection.php');
                 <form class="form-horizontal" method="get">
                     <fieldset>
                         <div class="form-group">
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <h3 class="mb-xlg">
                                     <?php if(!$utente['disponibile']) {
                                         echo '<strike><p>Informazioni Generali</p></strike>
@@ -53,49 +53,49 @@ include('./connection.php');
                                     ?>
                                 </h3>
                             </div>
-                            <div class="col-md-3" style="margin-top: 20px;">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="margin-top: 20px;">
                                 <input type="button" onclick="location.href='user_list.php'" value="Indietro" class="btn btn-default"/>
                                 <input type="button" onclick="location.href='user_update.php?id=<?php echo $_GET['id'] ?>'" value="Modifica" class="btn btn-default"/>
                                 <input type="button" onclick="deleteWarning()" type="button" class="btn btn-danger" value="Elimina">
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Nome:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;"><?php echo $utente['first_name'] ?></p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Cognome:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;"><?php echo $utente['last_name'] ?></p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">email:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;"><?php echo $utente['email'] ?></p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Telefono:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;"><?php echo $utente['telephone'] ?></p>
                             </div>
                         </div>
                         <div class="form-group">
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                     <p style="font-size: 16px; font-weight: bold">Località:</p>
                                 </div>
-                                <div class="col-md-9">
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                     <p style="font-size: 14px;">
                                     <?php if( $utente['immobile_vendita_paese'] ) {
                                         echo $utente['immobile_vendita_paese'];
@@ -106,10 +106,10 @@ include('./connection.php');
                                 </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Metratura:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;">
                                 <?php if( $utente['metratura'] ) {
                                     echo $utente['metratura'] . 'm<sup>2</sup>';
@@ -120,10 +120,10 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Anno:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;">
                                 <?php if( $utente['anno'] ) {
                                     echo $utente['anno'];
@@ -134,10 +134,10 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Prezzo:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;">
                                 <?php if( $utente['prezzo'] ) {
                                     echo $utente['prezzo'];
@@ -148,10 +148,10 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Provvigione:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;">
                                 <?php if( $utente['provvigione'] ) {
                                     echo $utente['provvigione'];
@@ -162,34 +162,34 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Numero di locali:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;"><?php echo $utente['locali'] ?></p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Numero di camere:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;"><?php echo $utente['camere'] ?></p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Numero di bagni:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;"><?php echo $utente['bagni'] ?></p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Classe Energetica:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;">
                                 <?php if( $utente['classe_energetica'] ) {
                                     echo $utente['classe_energetica'];
@@ -200,10 +200,10 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Descrizione ulteriore:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;">
                                 <?php if( $utente['description'] ) {
                                     echo $utente['description'];
@@ -214,10 +214,10 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Arredamento:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;">
                                 <?php if( $utente['arredamento'] ) {
                                     echo $utente['arredamento'];
@@ -228,10 +228,10 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Posto Auto:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <?php if( $utente['pauto'] ) { ?>
                                     <i class="fa  fa-check" style="color:green"></i>
                                 <?php } else { ?>
@@ -240,10 +240,10 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Garage:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <?php if( $utente['garage'] ) { ?>
                                     <i class="fa  fa-check" style="color:green"></i>
                                 <?php } else { ?>
@@ -252,10 +252,10 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Giardino:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <?php if( $utente['giardino'] ) { ?>
                                     <i class="fa  fa-check" style="color:green"></i>
                                 <?php } else { ?>
@@ -264,10 +264,10 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Balcone:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <?php if( $utente['balcone'] ) { ?>
                                     <i class="fa  fa-check" style="color:green"></i>
                                 <?php } else { ?>
@@ -276,10 +276,10 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Terrazzo:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <?php if( $utente['terrazzo'] ) { ?>
                                     <i class="fa  fa-check" style="color:green"></i>
                                 <?php } else { ?>
@@ -288,10 +288,10 @@ include('./connection.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Data di registrazione:</p>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;"><?php echo $utente['reg_date'] ?></p>
                             </div>
                         </div>
