@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-md-3 control-label" for="address_ReadOnly">Localita</label>
+        <label class="col-md-3 control-label" for="address_ReadOnly">Paesi di interesse</label>
         <div class="col-md-6">
             <input type="text" value="" id="address_ReadOnly" class="form-control" readonly="readonly">
         </div>

@@ -64,8 +64,17 @@ $('input#anno').change( (e) => {
 })
 $('.info-aggiuntive').change( (e) => {
     console.log($(e.target).prop("checked"))
-    $(`input[name=${$(e.target).val()}_ReadOnly]`).prop("checked",$(e.target).prop("checked"));
+    if (!$(e.target).hasClass('paesi_interesse')) $(`input[name=${$(e.target).val()}_ReadOnly]`).prop("checked",$(e.target).prop("checked"));
 })
+
+$('.paesi_interesse').change( (e) => {
+    let paesi = '';
+    $('.paesi_interesse:checked').each( (i, v) => {
+        paesi += $(v).val() + ',';
+    })
+    $('#address_ReadOnly').val(paesi);
+});
+
 $('.salva-form').click( () => {
     $('.salva-form-hidden').click()
 })

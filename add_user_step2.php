@@ -53,7 +53,7 @@
                 echo '
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" value="'.$paese.'" name="immobile_ricerca_paesi[]" class="info-aggiuntive">
+                        <input type="checkbox" value="'.$paese.'" name="immobile_ricerca_paesi[]" class="info-aggiuntive paesi_interesse">
                         '.$paese.'
                     </label>
                 </div>
