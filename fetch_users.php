@@ -53,6 +53,10 @@ if (isset($_POST["action"])) {
         $sql .= " AND (arredamento IN ('".$arredamento."'))";
     }
 
+    if (isset($_POST["paesi_scelti"]) && $_POST["paesi_scelti"]) {
+        $sql .= " AND (immobile_ricerca_paesi LIKE '%".$_POST["paesi_scelti"]."%')";
+    }
+
     if (isset($_POST["info_aggiuntive"])) {
         foreach ($_POST["info_aggiuntive"] as $info) {
             $sql .= " AND (".$info."=1)";

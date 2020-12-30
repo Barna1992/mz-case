@@ -124,16 +124,26 @@
             <div style="overflow-y: auto; overflow-x: hidden;">
                 <?php
 
-                $sql = "SELECT DISTINCT(immobile_vendita_paese) FROM AgenziaMZ ORDER BY immobile_vendita_paese ASC";
+                $sql = "SELECT DISTINCT(immobile_ricerca_paesi) FROM AgenziaMZ";
                 $result = mysqli_query($conn, $sql);
+                $paesi = [];
 
                 foreach($result as $row)
                 {
+                    $row_array = explode(",",$row['immobile_ricerca_paesi']);
+
+                    foreach($row_array as $paese) {
+
+                        if (!in_array(trim($paese), $paesi) && $paese) {
+                            array_push($paesi, trim($paese));
+
                     ?>
                     <div class="list-group-item checkbox">
-                        <label><input type="checkbox" class="common_selector immobile_vendita_paese" value="<?php echo $row['immobile_vendita_paese']; ?>"  > <?php echo $row['immobile_vendita_paese']; ?></label>
+                        <label><input type="checkbox" class="paesi_checkbox immobile_ricerca_paesi" value="<?php echo trim($paese); ?>"  > <?php echo trim($paese); ?></label>
                     </div>
                     <?php
+                        }
+                    }
                 }
                 mysqli_free_result($result);
 
@@ -209,7 +219,7 @@
     $(document).ready(function(){
 
         filter_data();
-        function filter_data(search='')
+        function filter_data(search='', paesi_scelti='')
         {
             $('.filter_data').html('<div id="loading" style="" ></div>');
             var action = 'fetch_data';
@@ -240,7 +250,7 @@
                     minimum_metratura:minimum_metratura, maximum_metratura: maximum_metratura,
                     minimum_locali:minimum_locali, maximum_locali:maximum_locali,
                     minimum_camere:minimum_camere, maximum_camere:maximum_camere,
-                    minimum_bagni:minimum_bagni, maximum_bagni:maximum_bagni,
+                    minimum_bagni:minimum_bagni, maximum_bagni:maximum_bagni, paesi_scelti:paesi_scelti,
                     ordering:ordering
                 },
                 success:function(data){
@@ -260,6 +270,15 @@
 
         $('.common_selector').click(function(e){
             filter_data();
+        });
+
+        $('.paesi_checkbox').click(function (e){
+            var paesi_scelti = '';
+            $('.paesi_checkbox:checked').each( (i, v) => {
+                paesi_scelti += $(v).val() + ',';
+           })
+            paesi_scelti=paesi_scelti.slice(0, -1);
+            filter_data(search='', paesi_scelti=paesi_scelti);
         });
 
         $('input[type=radio]').change( () => {

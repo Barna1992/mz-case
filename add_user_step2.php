@@ -3,14 +3,16 @@
         <label class="col-sm-3 control-label" for="inputSuccess">Tipologia</label>
         <div class="col-sm-6">
             <select class="form-control" name="type_house" id="type_house" required>
+                <option value="albergo">Albergo</option>
                 <option value="appartamento">Appartamenti</option>
+                <option value="attivita">Attività</option>
                 <option value="villa">Ville</option>
                 <option value="rustico">Rustici / cascine / case</option>
                 <option value="box">Box / posti auto</option>
             </select>
         </div>
     </div>
-    <div class="form-group" id="div_immobile_vendita_paese">
+    <div class="form-group" id="div_immobile_vendita_paese" hidden>
         <label class="col-sm-3 control-label" for="immobile_vendita_paese">Paese</label>
         <div class="col-sm-6">
             <select class="form-control" name="immobile_vendita_paese" id="immobile_vendita_paese" required>
@@ -40,7 +42,7 @@
             </select>
         </div>
     </div>
-    <div class="form-group" id="div_immobile_ricerca_paese" hidden>
+    <div class="form-group" id="div_immobile_ricerca_paese">
         <label class="col-md-3 control-label" for="inputSuccess">Paesi di interesse:</label>
         <div class="col-md-6">
             <?php

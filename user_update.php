@@ -64,8 +64,9 @@ include('./connection.php');
                         <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="inputSuccess">Tipologia</label>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <select class="form-control" name="type_house" id="type_house" required>
+                                <option value="albergo">Albergo</option>
                                 <option value="appartamento">Appartamenti</option>
-                                <option value="villa">Ville</option>
+                                <option value="attivita">Attività</option>                                <option value="villa">Ville</option>
                                 <option value="rustico">Rustici / cascine / case</option>
                                 <option value="box">Box / posti auto</option>
                                 <option value="terreno">Terreno</option>
@@ -108,11 +109,23 @@ include('./connection.php');
                         <label class="col-md-3 control-label" for="inputSuccess">Paesi di interesse:</label>
                         <div class="col-md-6">
                             <?php
+                            $paesi_scelti = explode(",",$utente['immobile_ricerca_paesi']);
                             $paesi = array('Borca', 'Alverà', 'Cadin', 'Cortina', 'Fiammes', 'Pocol', 'Zuel', 'Dogana Vecchia',
                                 'San Vito', 'Serdes', 'Valle', 'Venas', 'Vodo');
                             sort($paesi);
                             foreach($paesi as $paese) {
-                                echo '
+                                if(in_array($paese, $paesi_scelti)) {
+                                    echo '
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="'.$paese.'" name="immobile_ricerca_paesi[]" class="info-aggiuntive" checked>
+                                        '.$paese.'
+                                    </label>
+                                </div>
+                                ';
+                                }
+                                else {
+                                    echo '
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" value="'.$paese.'" name="immobile_ricerca_paesi[]" class="info-aggiuntive">
@@ -120,6 +133,7 @@ include('./connection.php');
                                     </label>
                                 </div>
                                 ';
+                                }
                             }
                             ?>
                         </div>

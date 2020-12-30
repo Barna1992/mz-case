@@ -97,8 +97,8 @@ include('./connection.php');
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                     <p style="font-size: 14px;">
-                                    <?php if( $utente['immobile_vendita_paese'] ) {
-                                        echo $utente['immobile_vendita_paese'];
+                                    <?php if( $utente['immobile_ricerca_paesi'] ) {
+                                        echo $utente['immobile_ricerca_paesi'];
                                     } else {
                                         echo '-';
                                     } ?>

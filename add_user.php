@@ -169,6 +169,8 @@
             $('#classe_energetica').parent().parent().show();
             $('#classe_energetica_ReadOnly').parent().parent().show();
         }
+        $('#div_immobile_ricerca_paese').show();
+        $('#div_immobile_vendita_paese').hide();
     }
     toggleStep2($('#user_type').val());
     $('#user_type').change( () => {

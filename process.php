@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($_POST["immobile_ricerca_paesi"] as $key => $value) {
         $list[] = "$value";
     }
-    $immobile_ricerca_paesi = implode(", ", $list);
+    $immobile_ricerca_paesi = implode(",", $list);
     $metratura = mysqli_real_escape_string($conn, $_POST["metratura"]);
     $anno = mysqli_real_escape_string($conn, $_POST["anno"]);
     $prezzo = mysqli_real_escape_string($conn, $_POST["prezzo"]);
