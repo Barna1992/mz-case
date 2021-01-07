@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $immobile_ricerca_paesi = implode(",", $list);
     $metratura = mysqli_real_escape_string($conn, $_POST["metratura"]);
     $anno = mysqli_real_escape_string($conn, $_POST["anno"]);
-    $prezzo = mysqli_real_escape_string($conn, $_POST["prezzo"]);
+    $prezzo = str_replace(".", "", mysqli_real_escape_string($conn, $_POST["prezzo"]));
     $provvigione = mysqli_real_escape_string($conn, $_POST["provvigione"]);
     $locali = mysqli_real_escape_string($conn, $_POST["locali"]);
     $camere = mysqli_real_escape_string($conn, $_POST["camere"]);

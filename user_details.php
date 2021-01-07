@@ -140,7 +140,7 @@ include('./connection.php');
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                 <p style="font-size: 14px;">
                                 <?php if( $utente['prezzo'] ) {
-                                    echo $utente['prezzo'];
+                                    echo number_format($utente['prezzo'], 0, ',', '.');
                                 } else {
                                     echo '-';
                                 } ?>

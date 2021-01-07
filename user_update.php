@@ -161,7 +161,7 @@ include('./connection.php');
                     <div class="form-group">
                         <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="prezzo">Prezzo</label>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                            <input type="text" class="form-control" name="prezzo" id="prezzo" value="<?php echo $utente['prezzo'] ?>">
+                            <input type="text" class="form-control" name="prezzo" id="prezzo" value="<?php echo number_format($utente['prezzo'], 0, ',', '.') ?>">
                         </div>
                         <span>&#8364;</span>
                     </div>

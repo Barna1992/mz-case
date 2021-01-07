@@ -100,7 +100,7 @@ if(mysqli_num_rows($result) > 0)
 												<i class="fa fa-send" style="margin-right:1em; color: #0088cc"></i>'. $utente['email'] . ' <br><i class="fa fa-phone" style="margin-right:1em; color: #0088cc"></i> ' . $utente['telephone'] . '
 											</span>
 											<span style="color:#34495e">
-												<i class="fa fa-eur" style="margin-right:1em; color: #0088cc"></i>'. $utente['prezzo'] . ' <br><i class="fa fa-map-marker" style="margin-right:1em; color: #0088cc"></i> ' . $utente['immobile_vendita_paese'] . '
+												<i class="fa fa-eur" style="margin-right:1em; color: #0088cc"></i>'. number_format($utente['prezzo'], 0, ',', '.') . ' <br><i class="fa fa-map-marker" style="margin-right:1em; color: #0088cc"></i> ' . $utente['immobile_vendita_paese'] . '
 											</span>											
 											</a>
 										</div>
