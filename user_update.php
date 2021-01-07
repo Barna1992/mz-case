@@ -110,8 +110,8 @@ include('./connection.php');
                         <div class="col-md-6">
                             <?php
                             $paesi_scelti = explode(",",$utente['immobile_ricerca_paesi']);
-                            $paesi = array('Borca', 'Alverà', 'Cadin', 'Cortina', 'Fiammes', 'Pocol', 'Zuel', 'Dogana Vecchia',
-                                'San Vito', 'Serdes', 'Valle', 'Venas', 'Vodo');
+                            $paesi = array('Borca', 'Cortina','San Vito', 'Valle', 'Venas', 'Vodo');
+
                             sort($paesi);
                             foreach($paesi as $paese) {
                                 if(in_array($paese, $paesi_scelti)) {

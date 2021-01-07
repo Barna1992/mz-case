@@ -46,8 +46,7 @@
         <label class="col-md-3 control-label" for="inputSuccess">Paesi di interesse:</label>
         <div class="col-md-6">
             <?php
-            $paesi = array('Borca', 'Alverà', 'Cadin', 'Cortina', 'Fiammes', 'Pocol', 'Zuel', 'Dogana Vecchia',
-                'San Vito', 'Serdes', 'Valle', 'Venas', 'Vodo');
+            $paesi = array('Borca', 'Cortina','San Vito', 'Valle', 'Venas', 'Vodo');
             sort($paesi);
             foreach($paesi as $paese) {
                 echo '
