@@ -33,48 +33,48 @@
                 ?></p>
             <div id="price_range"></div>
         </div>
-        <div class="list-group">
-            <h3 style="text-align: center">Metratura</h3>
-            <?php
-            $sql = "SELECT MAX(CAST(metratura as signed)) as MAX FROM AgenziaMZ";
-            $result = mysqli_query($conn, $sql);
-            $metratura = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-            mysqli_free_result($result);
-
-            ?>
-            <input type="hidden" id="hidden_minimum_metratura" value="0" />
-            <input type="hidden" id="hidden_maximum_metratura" value="<?php echo $metratura[0]['MAX']?>" />
-            <p id="metratura_show" style="text-align: center"><?php
-                foreach ($metratura as $met) {
-                    echo 0;
-                    echo ' - ';
-                    echo $met["MAX"];
-                }
-                ?></p>
-            <div id="metratura_range"></div>
-        </div>
-        <div class="list-group">
-            <h3 style="text-align: center">Numero di locali</h3>
-            <?php
-            $sql = "SELECT MAX(CAST(locali as signed)) as MAX FROM AgenziaMZ";
-            $result = mysqli_query($conn, $sql);
-            $locali = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-            mysqli_free_result($result);
-
-            ?>
-            <input type="hidden" id="hidden_minimum_locali" value="1" />
-            <input type="hidden" id="hidden_maximum_locali" value="<?php echo $locali[0]["MAX"] ?>" />
-            <p id="locali_show" style="text-align: center"><?php
-                foreach ($locali as $locale) {
-                    echo 1;
-                    echo ' - ';
-                    echo $locale["MAX"];
-                }
-                ?></p>
-            <div id="locali_range"></div>
-        </div>
+<!--        <div class="list-group">-->
+<!--            <h3 style="text-align: center">Metratura</h3>-->
+<!--            --><?php
+//            $sql = "SELECT MAX(CAST(metratura as signed)) as MAX FROM AgenziaMZ";
+//            $result = mysqli_query($conn, $sql);
+//            $metratura = mysqli_fetch_all($result, MYSQLI_ASSOC);
+//
+//            mysqli_free_result($result);
+//
+//            ?>
+<!--            <input type="hidden" id="hidden_minimum_metratura" value="0" />-->
+<!--            <input type="hidden" id="hidden_maximum_metratura" value="--><?php //echo $metratura[0]['MAX']?><!--" />-->
+<!--            <p id="metratura_show" style="text-align: center">--><?php
+//                foreach ($metratura as $met) {
+//                    echo 0;
+//                    echo ' - ';
+//                    echo $met["MAX"];
+//                }
+//                ?><!--</p>-->
+<!--            <div id="metratura_range"></div>-->
+<!--        </div>-->
+<!--        <div class="list-group">-->
+<!--            <h3 style="text-align: center">Numero di locali</h3>-->
+<!--            --><?php
+//            $sql = "SELECT MAX(CAST(locali as signed)) as MAX FROM AgenziaMZ";
+//            $result = mysqli_query($conn, $sql);
+//            $locali = mysqli_fetch_all($result, MYSQLI_ASSOC);
+//
+//            mysqli_free_result($result);
+//
+//            ?>
+<!--            <input type="hidden" id="hidden_minimum_locali" value="1" />-->
+<!--            <input type="hidden" id="hidden_maximum_locali" value="--><?php //echo $locali[0]["MAX"] ?><!--" />-->
+<!--            <p id="locali_show" style="text-align: center">--><?php
+//                foreach ($locali as $locale) {
+//                    echo 1;
+//                    echo ' - ';
+//                    echo $locale["MAX"];
+//                }
+//                ?><!--</p>-->
+<!--            <div id="locali_range"></div>-->
+<!--        </div>-->
         <br/>
         <div class="list-group">
             <h3 style="text-align: center">Numero di camere</h3>
@@ -150,49 +150,49 @@
                 ?>
             </div>
         </div>
-        <div class="list-group">
-            <h3 style="text-align: center">Classe Energetica</h3>
-            <div style="overflow-y: auto; overflow-x: hidden;">
-                <?php
-
-                $sql = "SELECT DISTINCT(classe_energetica) FROM AgenziaMZ ORDER BY classe_energetica ASC";
-                $result = mysqli_query($conn, $sql);
-
-                foreach($result as $row)
-                {
-                    ?>
-                    <div class="list-group-item checkbox">
-                        <label><input type="checkbox" class="common_selector classe_energetica" value="<?php echo $row['classe_energetica']; ?>"  > <?php echo $row['classe_energetica']; ?></label>
-                    </div>
-                    <?php
-                }
-                mysqli_free_result($result);
-
-                ?>
-            </div>
-        </div>
-        <div class="list-group">
-            <h3 style="text-align: center">Arredamento</h3>
-            <div style="overflow-y: auto; overflow-x: hidden;">
-                <?php
-
-                $sql = "SELECT DISTINCT(arredamento) FROM AgenziaMZ ORDER BY arredamento ASC";
-                $result = mysqli_query($conn, $sql);
-
-                foreach($result as $row)
-                {
-                    ?>
-                    <div class="list-group-item checkbox">
-                        <label><input type="checkbox" class="common_selector arredamento" value="<?php echo $row['arredamento']; ?>"  > <?php echo $row['arredamento']; ?></label>
-                    </div>
-                    <?php
-                }
-                mysqli_free_result($result);
-                mysqli_close($conn);
-
-                ?>
-            </div>
-        </div>
+<!--        <div class="list-group">-->
+<!--            <h3 style="text-align: center">Classe Energetica</h3>-->
+<!--            <div style="overflow-y: auto; overflow-x: hidden;">-->
+<!--                --><?php
+//
+//                $sql = "SELECT DISTINCT(classe_energetica) FROM AgenziaMZ ORDER BY classe_energetica ASC";
+//                $result = mysqli_query($conn, $sql);
+//
+//                foreach($result as $row)
+//                {
+//                    ?>
+<!--                    <div class="list-group-item checkbox">-->
+<!--                        <label><input type="checkbox" class="common_selector classe_energetica" value="--><?php //echo $row['classe_energetica']; ?><!--"  > --><?php //echo $row['classe_energetica']; ?><!--</label>-->
+<!--                    </div>-->
+<!--                    --><?php
+//                }
+//                mysqli_free_result($result);
+//
+//                ?>
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="list-group">-->
+<!--            <h3 style="text-align: center">Arredamento</h3>-->
+<!--            <div style="overflow-y: auto; overflow-x: hidden;">-->
+<!--                --><?php
+//
+//                $sql = "SELECT DISTINCT(arredamento) FROM AgenziaMZ ORDER BY arredamento ASC";
+//                $result = mysqli_query($conn, $sql);
+//
+//                foreach($result as $row)
+//                {
+//                    ?>
+<!--                    <div class="list-group-item checkbox">-->
+<!--                        <label><input type="checkbox" class="common_selector arredamento" value="--><?php //echo $row['arredamento']; ?><!--"  > --><?php //echo $row['arredamento']; ?><!--</label>-->
+<!--                    </div>-->
+<!--                    --><?php
+//                }
+//                mysqli_free_result($result);
+//                mysqli_close($conn);
+//
+//                ?>
+<!--            </div>-->
+<!--        </div>-->
         <div class="list-group">
             <h3 style="text-align: center">Informazioni aggiuntive</h3>
             <div style="overflow-y: auto; overflow-x: hidden;">
@@ -205,9 +205,9 @@
                 <div class="list-group-item checkbox">
                     <label><input type="checkbox" class="common_selector info_aggiuntive giardino" value="giardino"  > Giardino </label>
                 </div>
-                <div class="list-group-item checkbox">
-                    <label><input type="checkbox" class="common_selector info_aggiuntive balcone" value="balcone"  > Balcone</label>
-                </div>
+<!--                <div class="list-group-item checkbox">-->
+<!--                    <label><input type="checkbox" class="common_selector info_aggiuntive balcone" value="balcone"  > Balcone</label>-->
+<!--                </div>-->
                 <div class="list-group-item checkbox">
                     <label><input type="checkbox" class="common_selector info_aggiuntive terrazzo" value="terrazzo"  > Terrazzo </label>
                 </div>
@@ -227,8 +227,8 @@
             var maximum_price = $('#hidden_maximum_price').val();
             var minimum_metratura = $('#hidden_minimum_metratura').val();
             var maximum_metratura = $('#hidden_maximum_metratura').val();
-            var minimum_locali = $('#hidden_minimum_locali').val();
-            var maximum_locali = $('#hidden_maximum_locali').val();
+            var minimum_locali = null;
+            var maximum_locali = null;
             var minimum_camere = $('#hidden_minimum_camere').val();
             var maximum_camere = $('#hidden_maximum_camere').val();
             var minimum_bagni = $('#hidden_minimum_bagni').val();
@@ -312,35 +312,35 @@
             }
         });
 
-        $('#metratura_range').slider({
-            range:true,
-            min:0,
-            max:<?php echo $metratura[0]["MAX"]?>,
-            values:[0, <?php echo $metratura[0]["MAX"]?>],
-            step:5,
-            stop:function(event, ui)
-            {
-                $('#metratura_show').html(ui.values[0] + ' - ' + ui.values[1]);
-                $('#hidden_minimum_metratura').val(ui.values[0]);
-                $('#hidden_maximum_metratura').val(ui.values[1]);
-                filter_data();
-            }
-        });
+        //$('#metratura_range').slider({
+        //    range:true,
+        //    min:0,
+        //    max:<?php //echo $metratura[0]["MAX"]?>//,
+        //    values:[0, <?php //echo $metratura[0]["MAX"]?>//],
+        //    step:5,
+        //    stop:function(event, ui)
+        //    {
+        //        $('#metratura_show').html(ui.values[0] + ' - ' + ui.values[1]);
+        //        $('#hidden_minimum_metratura').val(ui.values[0]);
+        //        $('#hidden_maximum_metratura').val(ui.values[1]);
+        //        filter_data();
+        //    }
+        //});
 
-        $('#locali_range').slider({
-            range:true,
-            min:1,
-            max:<?php echo $locali[0]["MAX"]?>,
-            values:[1, <?php echo $locali[0]["MAX"]?>],
-            step:1,
-            stop:function(event, ui)
-            {
-                $('#locali_show').html(ui.values[0] + ' - ' + ui.values[1]);
-                $('#hidden_minimum_locali').val(ui.values[0]);
-                $('#hidden_maximum_locali').val(ui.values[1]);
-                filter_data();
-            }
-        });
+        //$('#locali_range').slider({
+        //    range:true,
+        //    min:1,
+        //    max:<?php //echo $locali[0]["MAX"]?>//,
+        //    values:[1, <?php //echo $locali[0]["MAX"]?>//],
+        //    step:1,
+        //    stop:function(event, ui)
+        //    {
+        //        $('#locali_show').html(ui.values[0] + ' - ' + ui.values[1]);
+        //        $('#hidden_minimum_locali').val(ui.values[0]);
+        //        $('#hidden_maximum_locali').val(ui.values[1]);
+        //        filter_data();
+        //    }
+        //});
 
         $('#camere_range').slider({
             range:true,

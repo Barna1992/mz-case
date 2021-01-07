@@ -28,40 +28,43 @@ $('.dob select').change( () => {
 type_house.change( (e) => {
     $('#type_ReadOnly').val($(e.target).val())
 })
-$('input#rif_num').change( (e) => {
-    $('#rif_num_ReadOnly').val($(e.target).val())
+$('input#rif_num_inviato').change( (e) => {
+    $('#rif_num_inviato_ReadOnly').val($(e.target).val())
+})
+$('input#rif_num_visitato').change( (e) => {
+    $('#rif_num_visitato_ReadOnly').val($(e.target).val())
 })
 
 $('input#prezzo').change( (e) => {
     $('#prezzo_ReadOnly').val($(e.target).val())
 })
-$('input#provvigione').change( (e) => {
-    $('#provvigione_ReadOnly').val($(e.target).val())
-})
-$('select[name=locali]').change( (e) => {
-    $('#locali_ReadOnly').val($(e.target).val())
-})
+// $('input#provvigione').change( (e) => {
+//     $('#provvigione_ReadOnly').val($(e.target).val())
+// })
+// $('select[name=locali]').change( (e) => {
+//     $('#locali_ReadOnly').val($(e.target).val())
+// })
 $('select[name=camere]').change( (e) => {
     $('#camere_ReadOnly').val($(e.target).val())
 })
 $('select[name=bagni]').change( (e) => {
     $('#bagni_ReadOnly').val($(e.target).val())
 })
-$('select[name=arredamento]').change( (e) => {
-    $('#arredamento_ReadOnly').val($(e.target).val())
-})
-$('select[name=classe_energetica]').change( (e) => {
-    $('#classe_energetica_ReadOnly').val($(e.target).val())
-})
+// $('select[name=arredamento]').change( (e) => {
+//     $('#arredamento_ReadOnly').val($(e.target).val())
+// })
+// $('select[name=classe_energetica]').change( (e) => {
+//     $('#classe_energetica_ReadOnly').val($(e.target).val())
+// })
 $('textarea#description').change( (e) => {
     $('#description_ReadOnly').val($(e.target).val())
 })
-$('input#metratura').change( (e) => {
-    $('#metratura_ReadOnly').val($(e.target).val())
-})
-$('input#anno').change( (e) => {
-    $('#anno_ReadOnly').val($(e.target).val())
-})
+// $('input#metratura').change( (e) => {
+//     $('#metratura_ReadOnly').val($(e.target).val())
+// })
+// $('input#anno').change( (e) => {
+//     $('#anno_ReadOnly').val($(e.target).val())
+// })
 $('.info-aggiuntive').change( (e) => {
     console.log($(e.target).prop("checked"))
     if (!$(e.target).hasClass('paesi_interesse')) $(`input[name=${$(e.target).val()}_ReadOnly]`).prop("checked",$(e.target).prop("checked"));

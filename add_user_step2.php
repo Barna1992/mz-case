@@ -63,50 +63,56 @@
         </div>
     </div>
 
-    <div class="form-group" style="display: none">
-        <label class="col-sm-3 control-label" for="rif_num" style="display: none">Rif</label>
-        <div class="col-sm-2" style="display: none">
-            <input type="text" class="form-control" name="rif_num" id="rif_num">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="rif_num_inviato">Riferimenti inviati</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" name="rif_num_inviato" id="rif_num_inviato">
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label" for="metratura">Metratura</label>
+        <label class="col-sm-3 control-label" for="rif_num_visitato">Riferimenti visitati</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" name="metratura" id="metratura">
-        </div>
-        m<sup>2</sup>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-3 control-label" for="anno">Anno immobile</label>
-        <div class="col-sm-2">
-            <input type="text" class="form-control" name="anno" id="anno" value="-">
+            <input type="text" class="form-control" name="rif_num_visitato" id="rif_num_visitato">
         </div>
     </div>
+<!--    <div class="form-group">-->
+<!--        <label class="col-sm-3 control-label" for="metratura">Metratura</label>-->
+<!--        <div class="col-sm-2">-->
+<!--            <input type="text" class="form-control" name="metratura" id="metratura">-->
+<!--        </div>-->
+<!--        m<sup>2</sup>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label class="col-sm-3 control-label" for="anno">Anno immobile</label>-->
+<!--        <div class="col-sm-2">-->
+<!--            <input type="text" class="form-control" name="anno" id="anno" value="-">-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="form-group">
         <label class="col-sm-3 control-label" for="prezzo">Budget</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" name="prezzo" id="prezzo">
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-3 control-label" for="provvigione">Tipo di provvigione</label>
-        <div class="col-sm-2">
-            <input type="text" class="form-control" name="provvigione" id="provvigione">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-3 control-label" for="locali">Numero di locali</label>
-        <div class="col-sm-2">
-            <select class="form-control" name="locali" id="locali">
-                <option value="1" selected>1</option>
-                <?php
-                    for($i = 2; $i <= 10; $i++) {
-                        echo '<option value="' . $i . '">' . $i . '</option>';
-                    }
-                ?>
-            </select>
-        </div>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label class="col-sm-3 control-label" for="provvigione">Tipo di provvigione</label>-->
+<!--        <div class="col-sm-2">-->
+<!--            <input type="text" class="form-control" name="provvigione" id="provvigione">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label class="col-sm-3 control-label" for="locali">Numero di locali</label>-->
+<!--        <div class="col-sm-2">-->
+<!--            <select class="form-control" name="locali" id="locali">-->
+<!--                <option value="1" selected>1</option>-->
+<!--                --><?php
+//                    for($i = 2; $i <= 10; $i++) {
+//                        echo '<option value="' . $i . '">' . $i . '</option>';
+//                    }
+//                ?>
+<!--            </select>-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="form-group">
         <label class="col-sm-3 control-label" for="camere">Camere</label>
         <div class="col-sm-2">
@@ -133,37 +139,37 @@
             </select>
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-3 control-label" for="classe_energetica">Classe energetica</label>
-        <div class="col-sm-2">
-            <select class="form-control" name="classe_energetica" id="classe_energetica">
-                <option value="">----</option>
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-                <option value="d">D</option>
-                <option value="e">E</option>
-                <option value="f">F</option>
-                <option value="g">G</option>
-            </select>
-        </div>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label class="col-sm-3 control-label" for="classe_energetica">Classe energetica</label>-->
+<!--        <div class="col-sm-2">-->
+<!--            <select class="form-control" name="classe_energetica" id="classe_energetica">-->
+<!--                <option value="">----</option>-->
+<!--                <option value="a">A</option>-->
+<!--                <option value="b">B</option>-->
+<!--                <option value="c">C</option>-->
+<!--                <option value="d">D</option>-->
+<!--                <option value="e">E</option>-->
+<!--                <option value="f">F</option>-->
+<!--                <option value="g">G</option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="form-group">
         <label class="col-sm-3 control-label" for="description">Note</label>
         <div class="col-md-9">
             <textarea class="form-control" rows="3" id="description" name="description" data-plugin-textarea-autosize="" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 86px;"></textarea>
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-3 control-label" for="arredamento">Arredamento</label>
-        <div class="col-sm-3">
-            <select class="form-control" name="arredamento" id="arredamento">
-                <option value="arredato">Arredato</option>
-                <option value="non arredato">Non arredato</option>
-                <option value="parzialmente arredato">Parzialmente arredato</option>
-            </select>
-        </div>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label class="col-sm-3 control-label" for="arredamento">Arredamento</label>-->
+<!--        <div class="col-sm-3">-->
+<!--            <select class="form-control" name="arredamento" id="arredamento">-->
+<!--                <option value="arredato">Arredato</option>-->
+<!--                <option value="non arredato">Non arredato</option>-->
+<!--                <option value="parzialmente arredato">Parzialmente arredato</option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div class="form-group">
         <label class="col-md-3 control-label" for="inputSuccess">Informazioni aggiuntive</label>
@@ -186,12 +192,12 @@
                     Giardino
                 </label>
             </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="balcone" name="balcone" class="info-aggiuntive">
-                    Balcone
-                </label>
-            </div>
+<!--            <div class="checkbox">-->
+<!--                <label>-->
+<!--                    <input type="checkbox" value="balcone" name="balcone" class="info-aggiuntive">-->
+<!--                    Balcone-->
+<!--                </label>-->
+<!--            </div>-->
             <div class="checkbox">
                 <label>
                     <input type="checkbox" value="terrazzo" name="terrazzo" class="info-aggiuntive">

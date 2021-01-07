@@ -21,6 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $birthdate = '2020-01-01';
     $type_house = mysqli_real_escape_string($conn, $_POST["type_house"]);
     $rif_num = mysqli_real_escape_string($conn, $_POST["rif_num"]);
+    $rif_num_visitato = mysqli_real_escape_string($conn, $_POST["rif_num_visitato"]);
+    $rif_num_inviato = mysqli_real_escape_string($conn, $_POST["rif_num_inviato"]);
     $immobile_vendita_paese = mysqli_real_escape_string($conn, $_POST["immobile_vendita_paese"]);
     if (isset($_POST["immobile_ricerca_paesi"])) {
         $immobile_vendita_paese = NULL;
@@ -74,11 +76,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO AgenziaMZ (first_name, last_name, whole_name, birthdate, email, telephone, user_type,
                        type_house, rif_num, immobile_vendita_paese, immobile_ricerca_paesi,
  metratura, anno, prezzo, provvigione, locali, camere, bagni, classe_energetica, description, arredamento, pauto,
-  garage, giardino, balcone, terrazzo, disponibile) VALUES (
+  garage, giardino, balcone, terrazzo, disponibile, rif_num_visitato, rif_num_inviato) VALUES (
 '$first_name', '$last_name', '$whole_name', '$birthdate', '$email', '$telephone','$user_type',
 '$type_house', '$rif_num', '$immobile_vendita_paese', '$immobile_ricerca_paesi', '$metratura', '$anno', 
  '$prezzo', '$provvigione', '$locali', '$camere', '$bagni', '$classe_energetica', '$description', '$arredamento',
-  '$pauto','$garage','$giardino', '$balcone', '$terrazzo','$disponibile')";
+  '$pauto','$garage','$giardino', '$balcone', '$terrazzo','$disponibile', '$rif_num_visitato', '$rif_num_inviato')";
     }
     else {
         $id =$_POST["id"];
@@ -89,8 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         prezzo='".$prezzo."', provvigione='".$provvigione."', locali='".$locali."', camere='".$camere."', 
         bagni='".$bagni."', classe_energetica='".$classe_energetica."', description='".$description."',
         arredamento='".$arredamento."', pauto=".$pauto.", garage=".$garage.", giardino=".$giardino.", balcone=".$balcone.",
-        terrazzo=".$terrazzo.", disponibile=".$disponibile." 
-                     WHERE id='$id'";
+        terrazzo=".$terrazzo.", disponibile=".$disponibile.", rif_num_visitato='".$rif_num_visitato."', 
+        rif_num_inviato='".$rif_num_inviato."' WHERE id='$id'";
     }
     echo $sql;
 }
