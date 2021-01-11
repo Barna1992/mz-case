@@ -305,6 +305,45 @@ include('./connection.php');
                         </div>
                         <div class="form-group">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <p style="font-size: 16px; font-weight: bold">Privacy:</p>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <?php
+                                $uploadDir = './uploads';
+                                $new_dir_path = $uploadDir . DIRECTORY_SEPARATOR . $_GET['id'] . DIRECTORY_SEPARATOR . 'privacy';
+                                $files = scandir($new_dir_path);
+                                $firstFile = $new_dir_path . DIRECTORY_SEPARATOR . $files[2];
+
+                                if( is_dir($new_dir_path)  ) { ?>
+                                    <i class="fa fa-file-pdf-o"></i><a href="<?php echo $firstFile; ?>" download="<?php echo $files[2]; ?>"><?php echo $files[2]; ?></a></i>
+                                    <i id="delete_privacy" class="fa fa-scissors" style="margin-left: 5px; color:red; font-weight: bold"></i>
+                                <?php } else {
+                                    echo '-';
+                                }?>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <p style="font-size: 16px; font-weight: bold">Foglio di visita:</p>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <?php
+                                $uploadDir = './uploads';
+                                $new_dir_path = $uploadDir . DIRECTORY_SEPARATOR . $_GET['id'] . DIRECTORY_SEPARATOR . 'visita';
+                                $files = scandir($new_dir_path);
+                                $firstFile = $new_dir_path . DIRECTORY_SEPARATOR . $files[2];
+
+                                if(is_dir($new_dir_path)) { ?>
+                                    <i class="fa fa-file-pdf-o"></i><a href="<?php echo $firstFile; ?>" download="<?php echo $files[2]; ?>"><?php echo $files[2]; ?></a>
+                                    <i id="delete_visita" class="fa fa-scissors" style="margin-left: 5px; color:red; font-weight: bold"></i>
+                                <?php } else {
+                                    echo '-';
+                                }?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <p style="font-size: 16px; font-weight: bold">Data di registrazione:</p>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
@@ -335,11 +374,51 @@ include('./connection.php');
 <!-- Theme Initialization Files -->
 <script src="assets/javascripts/theme.init.js"></script>
 <script>
+    $('#delete_privacy').click( () => {
+        console.log('delete privacy')
+        deletePrivacyWarning()
+    });
+    $('#delete_visita').click( () => {
+        console.log('delete visita')
+        deleteVisitaWarning()
+    });
+    const urlParams = new URLSearchParams(window.location.search);
+    const uid = urlParams.get('id');
     function deleteWarning() {
         var r = confirm("Sei sicuro di volere eliminare questo elemento?\n" );
         if ( r ) {
             var urlParams = new URLSearchParams(window.location.search);
             window.location.href = `generic_delete.php?id=${urlParams.get('id')}`;
+        }
+    }
+    function deletePrivacyWarning() {
+        var r = confirm("Sei sicuro di volere eliminare l'allegato Privacy?\n" );
+        if ( r ) {
+            $.ajax(
+                {
+                    url:"delete_updated_file.php",
+                    method:"POST",
+                    data:{'id':uid, 'folder':'privacy'},
+                    success: (() => {
+                        window.location.reload();
+                    })
+                }
+            )
+        }
+    }
+    function deleteVisitaWarning() {
+        var r = confirm("Sei sicuro di volere eliminare l'allegato Foglio di visita?\n" );
+        if ( r ) {
+            $.ajax(
+                {
+                    url:"delete_updated_file.php",
+                    method:"POST",
+                    data:{'id':uid, 'folder':'visita'},
+                    success: ( () => {
+                        window.location.reload();
+                    })
+                }
+            )
         }
     }
 </script>

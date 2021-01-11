@@ -96,6 +96,44 @@
             ?>>
         </div>
     </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">Privacy</label>
+        <div class="col-md-6">
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+                <div class="input-append">
+                    <div class="uneditable-input">
+                        <i class="fa fa-file fileupload-exists"></i>
+                        <span class="fileupload-preview"></span>
+                    </div>
+                    <span class="btn btn-default btn-file">
+																<span class="fileupload-exists">Cambia</span>
+																<span class="fileupload-new">Seleziona File</span>
+																<input type="file" name="privacy_file" accept="image/jpeg,image/gif,image/png,application/pdf">
+															</span>
+                    <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Rimuovi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">Foglio di visita</label>
+        <div class="col-md-6">
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+                <div class="input-append">
+                    <div class="uneditable-input">
+                        <i class="fa fa-file fileupload-exists"></i>
+                        <span class="fileupload-preview"></span>
+                    </div>
+                    <span class="btn btn-default btn-file">
+																<span class="fileupload-exists">Cambia</span>
+																<span class="fileupload-new">Seleziona File</span>
+																<input type="file" name="visita_file" accept="image/jpeg,image/gif,image/png,application/pdf">
+															</span>
+                    <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Rimuovi</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="form-group dob" hidden>
         <label class="col-sm-3 control-label" for="user_type">Tipo di utente</label>
         <div class="col-sm-2">

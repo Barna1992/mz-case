@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  metratura, anno, prezzo, provvigione, locali, camere, bagni, classe_energetica, description, arredamento, pauto,
   garage, giardino, balcone, terrazzo, disponibile, rif_num_visitato, rif_num_inviato) VALUES (
 '$first_name', '$last_name', '$whole_name', '$birthdate', '$email', '$telephone','$user_type',
-'$type_house', '$rif_num', '$immobile_vendita_paese', '$immobile_ricerca_paesi', '$metratura', '$anno', 
+'$type_house', '$rif_num', '$immobile_vendita_paese', '$immobile_ricerca_paesi', '$metratura', '$anno',
  '$prezzo', '$provvigione', '$locali', '$camere', '$bagni', '$classe_energetica', '$description', '$arredamento',
   '$pauto','$garage','$giardino', '$balcone', '$terrazzo','$disponibile', '$rif_num_visitato', '$rif_num_inviato')";
     }
@@ -87,14 +87,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "UPDATE AgenziaMZ SET first_name='$first_name', last_name='$last_name',
         whole_name='$whole_name', birthdate='$birthdate', email='$email', telephone='$telephone', user_type='$user_type',
         type_house='".$type_house."', rif_num='".$rif_num."', immobile_vendita_paese='".$immobile_vendita_paese."',
-        immobile_ricerca_paesi='".$immobile_ricerca_paesi."', metratura='".$metratura."', anno='".$anno."', 
-        prezzo='".$prezzo."', provvigione='".$provvigione."', locali='".$locali."', camere='".$camere."', 
+        immobile_ricerca_paesi='".$immobile_ricerca_paesi."', metratura='".$metratura."', anno='".$anno."',
+        prezzo='".$prezzo."', provvigione='".$provvigione."', locali='".$locali."', camere='".$camere."',
         bagni='".$bagni."', classe_energetica='".$classe_energetica."', description='".$description."',
         arredamento='".$arredamento."', pauto=".$pauto.", garage=".$garage.", giardino=".$giardino.", balcone=".$balcone.",
-        terrazzo=".$terrazzo.", disponibile=".$disponibile.", rif_num_visitato='".$rif_num_visitato."', 
+        terrazzo=".$terrazzo.", disponibile=".$disponibile.", rif_num_visitato='".$rif_num_visitato."',
         rif_num_inviato='".$rif_num_inviato."' WHERE id='$id'";
     }
-    echo $sql;
 }
     if(mysqli_query($conn, $sql)) {
         if ( !isset($_POST["id"]) ) {
@@ -104,10 +103,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $last_id = $_POST["id"];
             header('Location: user_details.php?id='. $last_id);
         }
-
     }
     else {
         echo 'query error: '.mysqli_error($conn);
+    }
+
+    print_r($_FILES);
+
+    $uploadDir = './uploads';
+
+
+    if(isset($_FILES['privacy_file'])){
+        if (UPLOAD_ERR_OK === $_FILES['privacy_file']['error']) {
+            $fileName = $_FILES['privacy_file']['name'];
+            $new_dir_path = $uploadDir . DIRECTORY_SEPARATOR . $last_id . DIRECTORY_SEPARATOR . 'privacy';
+            echo $new_dir_path;
+            if (!file_exists($new_dir_path)) {
+                mkdir($new_dir_path, 0777, true);
+            }
+            move_uploaded_file($_FILES['privacy_file']['tmp_name'], $new_dir_path . DIRECTORY_SEPARATOR . $fileName);
+        }
+    }
+
+
+    if(isset($_FILES['visita_file'])){
+        if (UPLOAD_ERR_OK === $_FILES['visita_file']['error']) {
+            $fileName = $_FILES['visita_file']['name'];
+            $new_dir_path = $uploadDir . DIRECTORY_SEPARATOR . $last_id . DIRECTORY_SEPARATOR . 'visita';
+            echo $new_dir_path;
+            if (!file_exists($new_dir_path)) {
+                mkdir($new_dir_path, 0777, true);
+            }
+            move_uploaded_file($_FILES['visita_file']['tmp_name'], $new_dir_path . DIRECTORY_SEPARATOR . $fileName);
+        }
     }
 
 ?>

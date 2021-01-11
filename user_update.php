@@ -15,6 +15,8 @@ if(isset($_GET['id'])) {
 include('./head.html');
 include('./connection.php');
 ?>
+<link rel="stylesheet" href="assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css" />
+
 <body>
 <section class="body">
 
@@ -25,7 +27,7 @@ include('./connection.php');
     <div class="inner-wrapper" >
 
 
-        <form id="update_form" name="update_form" role="main" class="content-body" method="post" action="process.php" style="margin-left:0px">
+        <form id="update_form" name="update_form" role="main" class="content-body" method="post" action="process.php" style="margin-left:0px" enctype="multipart/form-data">
             <?php if($utente): ?>
                 <header class="page-header" style="left:0px">
                     <h2>Appartamento riferito a <?php echo $utente['first_name'] .' '. $utente['last_name']?></h2>
@@ -266,6 +268,61 @@ include('./connection.php');
 <!--                        </div>-->
 <!--                    </div>-->
 
+<!--                faccio vedere i campi solo se non trovo la cartella privacy o la cartella visita-->
+                <?php
+                $uploadDir = './uploads';
+                $new_dir_path_privacy = $uploadDir . DIRECTORY_SEPARATOR . $_GET['id'] . DIRECTORY_SEPARATOR . 'privacy';
+                if (!is_dir($new_dir_path_privacy)) {
+                    $files = scandir($new_dir_path_privacy);
+                    $firstFile = $new_dir_path_privacy . DIRECTORY_SEPARATOR . $files[2]; ?>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Privacy</label>
+                        <div class="col-md-6">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="input-append">
+                                    <div class="uneditable-input">
+                                        <i class="fa fa-file fileupload-exists"></i>
+                                        <span class="fileupload-preview"></span>
+                                    </div>
+                                    <span class="btn btn-default btn-file">
+                                                                    <span class="fileupload-exists">Cambia</span>
+                                                                    <span class="fileupload-new">Seleziona File</span>
+                                                                    <input type="file" name="privacy_file" accept="image/jpeg,image/gif,image/png,application/pdf">
+
+                                                                </span>
+                                    <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Rimuovi</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+                <?php
+                $uploadDir = './uploads';
+                $new_dir_path_visita = $uploadDir . DIRECTORY_SEPARATOR . $_GET['id'] . DIRECTORY_SEPARATOR . 'visita';
+                if (!is_dir($new_dir_path_visita)) {
+                    $files = scandir($new_dir_path_visita);
+                    $firstFile = $new_dir_path_visita . DIRECTORY_SEPARATOR . $files[2]; ?>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Foglio di visita</label>
+                        <div class="col-md-6">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="input-append">
+                                    <div class="uneditable-input">
+                                        <i class="fa fa-file fileupload-exists"></i>
+                                        <span class="fileupload-preview"></span>
+                                    </div>
+                                    <span class="btn btn-default btn-file">
+                                                                    <span class="fileupload-exists">Cambia</span>
+                                                                    <span class="fileupload-new">Seleziona File</span>
+                                                                    <input type="file" name="visita_file" accept="image/jpeg,image/gif,image/png,application/pdf">
+
+                                                                </span>
+                                    <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Rimuovi</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="inputSuccess">Informazioni aggiuntive</label>
                         <div class="col-md-6">
@@ -309,7 +366,7 @@ include('./connection.php');
                                     Terrazzo
                                 </label>
                             </div>
-                            <div class="checkbox">
+                            <div class="checkbox" style="display: none">
                                 <label>
                                     <input type="checkbox" value="disponibile" name="disponibile" class="info-aggiuntive"
                                         <?php if($utente['disponibile']) { echo 'checked'; }?>
@@ -340,6 +397,8 @@ include('./connection.php');
 <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
 <script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+<!-- Specific Page Vendor -->
+<script src="assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
 
 <!-- Theme Base, Components and Settings -->
 <script src="assets/javascripts/theme.js"></script>
@@ -351,9 +410,6 @@ include('./connection.php');
 <script src="assets/javascripts/theme.init.js"></script>
 <script>
     document.getElementById('type_house').value='<?php echo $utente['type_house']?>';
-    document.getElementById('locali').selectedIndex=<?php echo $utente['locali']?>;
-    document.getElementById('classe_energetica').value='<?php echo $utente['classe_energetica']?>';
-    document.getElementById('arredamento').value='<?php echo $utente['arredamento']?>';
     <?php if( !empty($utente['immobile_vendita_paese'])) { ?>
     document.getElementById('immobile_vendita_paese').value='<?php echo $utente['immobile_vendita_paese']?>';
     <?php } else { ?>
