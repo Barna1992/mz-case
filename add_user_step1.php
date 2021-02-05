@@ -106,10 +106,10 @@
                         <span class="fileupload-preview"></span>
                     </div>
                     <span class="btn btn-default btn-file">
-																<span class="fileupload-exists">Cambia</span>
-																<span class="fileupload-new">Seleziona File</span>
-																<input type="file" name="privacy_file" accept="image/jpeg,image/gif,image/png,application/pdf">
-															</span>
+                        <span class="fileupload-exists">Cambia</span>
+                        <span class="fileupload-new">Seleziona File</span>
+                        <input type="file" name="privacy_file" accept="image/jpeg,image/gif,image/png,application/pdf">
+                    </span>
                     <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Rimuovi</a>
                 </div>
             </div>
@@ -125,10 +125,10 @@
                         <span class="fileupload-preview"></span>
                     </div>
                     <span class="btn btn-default btn-file">
-																<span class="fileupload-exists">Cambia</span>
-																<span class="fileupload-new">Seleziona File</span>
-																<input type="file" name="visita_file" accept="image/jpeg,image/gif,image/png,application/pdf">
-															</span>
+                        <span class="fileupload-exists">Cambia</span>
+                        <span class="fileupload-new">Seleziona File</span>
+                        <input type="file" name="visita_file" accept="image/jpeg,image/gif,image/png,application/pdf">
+                    </span>
                     <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Rimuovi</a>
                 </div>
             </div>

@@ -1,16 +1,17 @@
+<?php
+require("./config/session.php");
+require("./config/connection.php");
+?>
 <!doctype html>
 <html class="fixed">
-<?php
-    include('./head.html');
-    include('./connection.php');
-?>
+<?php include('./head.html'); ?>
 
 <body>
 <!-- start: page -->
 <section class="body-sign">
     <div class="center-sign">
         <a href="/" class="logo pull-left">
-            <img src="assets/images/logo.png" height="54" alt="Porto Admin" />
+            <img src="assets/images/logo.png" height="54" alt="Mz-Case" />
         </a>
         <?php
         if (isset($_POST['register'])) {
@@ -44,10 +45,7 @@
                 } else {
                     $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-                    $sql = "
-                SELECT id
-                FROM AgenziaUtenti
-                WHERE username = '" . $username . "'
+                    $sql = " SELECT id FROM AgenziaUtenti WHERE username = '" . $username . "'
                 ";
 
                     $result = mysqli_query($conn, $sql);

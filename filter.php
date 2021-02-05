@@ -300,8 +300,8 @@
         $('#price_range').slider({
             range:true,
             min:0,
-            max:<?php echo $prezzi[0]["MAX"]?>,
-            values:[0, <?php echo $prezzi[0]["MAX"]?>],
+            max:<?php echo $prezzi[0]["MAX"]; ?>,
+            values:[0, <?php echo $prezzi[0]["MAX"]; ?>],
             step:500,
             stop:function(event, ui)
             {
@@ -345,8 +345,8 @@
         $('#camere_range').slider({
             range:true,
             min:1,
-            max:<?php echo $camere[0]["MAX"]?>,
-            values:[1, <?php echo $camere[0]["MAX"]?>],
+            max:<?php echo $camere[0]["MAX"]; ?>,
+            values:[1, <?php echo $camere[0]["MAX"]; ?>],
             step:1,
             stop:function(event, ui)
             {
@@ -360,8 +360,8 @@
         $('#bagni_range').slider({
             range:true,
             min:1,
-            max:<?php echo $bagni[0]["MAX"]?>,
-            values:[1, <?php echo $bagni[0]["MAX"]?>],
+            max:<?php echo $bagni[0]["MAX"]; ?>,
+            values:[1, <?php echo $bagni[0]["MAX"]; ?>],
             step:1,
             stop:function(event, ui)
             {

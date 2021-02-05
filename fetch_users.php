@@ -1,6 +1,6 @@
 <?php
-
-include('./connection.php');
+require("./config/session.php");
+require("./config/connection.php");
 
 $output = '';
 
@@ -85,7 +85,7 @@ if(mysqli_num_rows($result) > 0)
 
     foreach($result as $utente){
         $output .= '
-        								<li style="border-bottom: none">
+        						<li style="border-bottom: none">
 									<div class="tm-info">
 										<div class="tm-icon"><i class="fa fa-user"></i></div>
 										<time class="tm-datetime">

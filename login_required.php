@@ -1,8 +1,6 @@
 <!doctype html>
 <html class="fixed">
-<?php
-include('./head.html');
-?>
+<?php include('./head.html'); ?>
 <body>
 <!-- start: page -->
 <section class="body-error error-outside">

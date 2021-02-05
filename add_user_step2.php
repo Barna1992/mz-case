@@ -5,7 +5,7 @@
             <select class="form-control" name="type_house" id="type_house" required>
                 <option value="albergo">Albergo</option>
                 <option value="appartamento">Appartamenti</option>
-                <option value="attivita">Attività</option>
+                <option value="attivita">Attivit&agrave;</option>
                 <option value="villa">Ville</option>
                 <option value="rustico">Rustici / cascine / case</option>
                 <option value="box">Box / posti auto</option>
@@ -16,29 +16,11 @@
         <label class="col-sm-3 control-label" for="immobile_vendita_paese">Paese</label>
         <div class="col-sm-6">
             <select class="form-control" name="immobile_vendita_paese" id="immobile_vendita_paese" required>
-                <optgroup label="Borca">
-                    <option value="Borca">Borca</option>
-                </optgroup>
-                <optgroup label="Cortina">
-                <option value="Alvera">Alverà</option>
-                <option value="Cadin">Cadin</option>
+                <option value="Borca">Borca</option>
                 <option value="Cortina">Cortina</option>
-                <option value="Fiammes">Fiammes</option>
-                <option value="Pocol">Pocol</option>
-                <option value="Zuel">Zuel</option>
-                </optgroup>
-                <optgroup label="San Vito">
-                    <option value="Dogana Vecchia">Dogana Vecchia</option>
-                    <option value="San Vito">San Vito</option>
-                    <option value="Serdes">Serdes</option>
-                </optgroup>
-                <optgroup label="Valle">
-                    <option value="Valle">Valle</option>
-                    <option value="Venas">Venas</option>
-                </optgroup>
-                <optgroup label="Vodo">
-                    <option value="Vodo">Vodo</option>
-                </optgroup>
+                <option value="San Vito">San Vito</option>
+                <option value="Valle">Valle</option>
+                <option value="Vodo">Vodo</option>
             </select>
         </div>
     </div>
@@ -46,7 +28,7 @@
         <label class="col-md-3 control-label" for="inputSuccess">Paesi di interesse:</label>
         <div class="col-md-6">
             <?php
-            $paesi = array('Borca', 'Cortina','San Vito', 'Valle', 'Venas', 'Vodo');
+            $paesi = array('Borca', 'Cortina','San Vito', 'Valle', 'Vodo');
             sort($paesi);
             foreach($paesi as $paese) {
                 echo '

@@ -1,9 +1,11 @@
+<?php
+require("./config/session.php");
+require("./config/connection.php");
+?>
 <!doctype html>
 <html class="fixed">
 
-    <?php
-    include('./head.html');
-    ?>
+    <?php include('./head.html'); ?>
 
     <!-- Specific Page Vendor CSS -->
     <link rel="stylesheet" href="assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css" />
@@ -11,18 +13,13 @@
 <body>
 <section class="body">
 
-    <?php
-        include('./header.php');
-    ?>
+    <?php include('./header.php'); ?>
 
     <div class="inner-wrapper">
         <section role="main" class="content-body" style="margin-left:0px">
             <header class="page-header" style="left:0px">
                 <h2>Aggiungi cliente</h2>
             </header>
-            <?php
-                include('./connection.php');
-            ?>
             <!-- start: page -->
             <div class="row">
                 <div class="col-xs-12">
@@ -53,16 +50,12 @@
                                 </ul>
                             </div>
 
-                            <form class="form-horizontal" novalidate="novalidate" method="post" action="process.php" enctype="multipart/form-data">
+                            <form class="form-horizontal" novalidate method="post" action="process.php" enctype="multipart/form-data">
                                 <div class="tab-content">
                                     <?php
-                                        include('./add_user_step1.php')
-                                    ?>
-                                    <?php
-                                        include('./add_user_step2.php')
-                                    ?>
-                                    <?php
-                                    include('./add_user_step3.php')
+                                        include('./add_user_step1.php');
+                                        include('./add_user_step2.php');
+	                                    include('./add_user_step3.php');
                                     ?>
 
                                 </div>
@@ -146,12 +139,11 @@
         }
     }
 
-    document.getElementById('user_type').value='<?php echo $utenti['user_type']?>';
-    <?php list($year, $month, $day, ) = explode('-', $utenti['birthdate']);
-    ?>
-    document.getElementById('birthday_year').value='<?php echo $year?>';
-    document.getElementById('birthday_month').value='<?php echo $month?>';
-    document.getElementById('birthday_day').value='<?php echo intval($day)?>';
+    document.getElementById('user_type').value='<?php echo $utenti['user_type']; ?>';
+    <?php list($year, $month, $day, ) = explode('-', $utenti['birthdate']); ?>
+    document.getElementById('birthday_year').value='<?php echo $year; ?>';
+    document.getElementById('birthday_month').value='<?php echo $month; ?>';
+    document.getElementById('birthday_day').value='<?php echo intval($day); ?>';
     function toggleStep2(utente) {
         if ( utente === 'cerca' ) {
             $('#div_immobile_ricerca_paese').show();

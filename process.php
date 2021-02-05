@@ -1,5 +1,6 @@
 <?php
-include('./connection.php');
+require("./config/session.php");
+require("./config/connection.php");
 
 function convertCheckBox($value) {
     if (empty($value)) {

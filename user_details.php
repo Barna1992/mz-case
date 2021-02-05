@@ -1,33 +1,32 @@
 <?php
-    include('./connection.php');
-    if(isset($_GET['id'])) {
-        $id = mysqli_real_escape_string($conn, $_GET['id']);
-        $sql = "SELECT * FROM AgenziaMZ WHERE id = $id";
-        $result = mysqli_query($conn, $sql);
-        $utente = mysqli_fetch_assoc($result);
-        mysqli_free_result($result);
-        mysqli_close($conn);
-    }
+require("./config/session.php");
+require("./config/connection.php");
 ?>
 <!doctype html>
 <html class="fixed search-results">
 <?php
+if (isset($_GET['id'])) {
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
+    $sql = "SELECT * FROM AgenziaMZ WHERE id = " . $id;
+    $result = mysqli_query($conn, $sql);
+    $utente = mysqli_fetch_assoc($result);
+    mysqli_free_result($result);
+    mysqli_close($conn);
+}
+
 include('./head.html');
-include('./connection.php');
 ?>
 <body>
 <section class="body">
 
-    <?php
-    include('./header.php');
-    ?>
+    <?php include('./header.php'); ?>
 
     <div class="inner-wrapper">
 
         <section role="main" class="content-body" style="margin-left:0px">
             <?php if($utente): ?>
             <header class="page-header" style="left:0px">
-                <h2>Profilo utente: <?php echo $utente['first_name'] .' '. $utente['last_name']?></h2>
+                <h2>Profilo utente: <?php echo $utente['first_name'] .' '. $utente['last_name']; ?></h2>
             </header>
             <?php else: ?>
                 <header class="page-header" style="left:0px">
@@ -44,8 +43,7 @@ include('./connection.php');
                                 <h3 class="mb-xlg">
                                     <?php if(!$utente['disponibile']) {
                                         echo '<strike><p>Informazioni Generali</p></strike>
-                                                  <p class="text-danger">NON DISPONIBILE</p>  
-                                                 ';
+                                                  <p class="text-danger">NON DISPONIBILE</p>';
                                     }
                                     else {
                                         echo 'Informazioni Generali';
@@ -54,8 +52,8 @@ include('./connection.php');
                                 </h3>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="margin-top: 20px;">
-                                <input type="button" onclick="location.href='user_list.php'" value="Indietro" class="btn btn-default"/>
-                                <input type="button" onclick="location.href='user_update.php?id=<?php echo $_GET['id'] ?>'" value="Modifica" class="btn btn-default"/>
+                                <input type="button" onclick="location.href='index.php'" value="Indietro" class="btn btn-default"/>
+                                <input type="button" onclick="location.href='user_update.php?id=<?php echo $_GET['id']; ?>'" value="Modifica" class="btn btn-default"/>
                                 <input type="button" onclick="deleteWarning()" type="button" class="btn btn-danger" value="Elimina">
                             </div>
                         </div>
@@ -64,7 +62,7 @@ include('./connection.php');
                                 <p style="font-size: 16px; font-weight: bold">Nome:</p>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                <p style="font-size: 14px;"><?php echo $utente['first_name'] ?></p>
+                                <p style="font-size: 14px;"><?php echo $utente['first_name']; ?></p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -72,7 +70,7 @@ include('./connection.php');
                                 <p style="font-size: 16px; font-weight: bold">Cognome:</p>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                <p style="font-size: 14px;"><?php echo $utente['last_name'] ?></p>
+                                <p style="font-size: 14px;"><?php echo $utente['last_name']; ?></p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -80,7 +78,7 @@ include('./connection.php');
                                 <p style="font-size: 16px; font-weight: bold">email:</p>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                <p style="font-size: 14px;"><?php echo $utente['email'] ?></p>
+                                <p style="font-size: 14px;"><?php echo $utente['email']; ?></p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -88,7 +86,7 @@ include('./connection.php');
                                 <p style="font-size: 16px; font-weight: bold">Telefono:</p>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                <p style="font-size: 14px;"><?php echo $utente['telephone'] ?></p>
+                                <p style="font-size: 14px;"><?php echo $utente['telephone']; ?></p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -110,7 +108,7 @@ include('./connection.php');
                                 <p style="font-size: 16px; font-weight: bold">Riferimenti inviati:</p>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                <p style="font-size: 14px;"><?php echo $utente['rif_num_inviato'] ?></p>
+                                <p style="font-size: 14px;"><?php echo $utente['rif_num_inviato']; ?></p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -118,7 +116,7 @@ include('./connection.php');
                                 <p style="font-size: 16px; font-weight: bold">Riferimenti visitati:</p>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                <p style="font-size: 14px;"><?php echo $utente['rif_num_visitato'] ?></p>
+                                <p style="font-size: 14px;"><?php echo $utente['rif_num_visitato']; ?></p>
                             </div>
                         </div>
 <!--                        <div class="form-group">-->
@@ -190,7 +188,7 @@ include('./connection.php');
                                 <p style="font-size: 16px; font-weight: bold">Numero di camere:</p>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                <p style="font-size: 14px;"><?php echo $utente['camere'] ?></p>
+                                <p style="font-size: 14px;"><?php echo $utente['camere']; ?></p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -198,7 +196,7 @@ include('./connection.php');
                                 <p style="font-size: 16px; font-weight: bold">Numero di bagni:</p>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                <p style="font-size: 14px;"><?php echo $utente['bagni'] ?></p>
+                                <p style="font-size: 14px;"><?php echo $utente['bagni']; ?></p>
                             </div>
                         </div>
 <!--                        <div class="form-group">-->
@@ -252,7 +250,7 @@ include('./connection.php');
                                     <i class="fa  fa-check" style="color:green"></i>
                                 <?php } else { ?>
                                     <i class="fa  fa-times" style="color:red"></i>
-                                <?php }  ?>
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="form-group">
@@ -264,7 +262,7 @@ include('./connection.php');
                                     <i class="fa  fa-check" style="color:green"></i>
                                 <?php } else { ?>
                                     <i class="fa  fa-times" style="color:red"></i>
-                                <?php }  ?>
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="form-group">
@@ -276,7 +274,7 @@ include('./connection.php');
                                     <i class="fa  fa-check" style="color:green"></i>
                                 <?php } else { ?>
                                     <i class="fa  fa-times" style="color:red"></i>
-                                <?php }  ?>
+                                <?php } ?>
                             </div>
                         </div>
 <!--                        <div class="form-group">-->
@@ -300,7 +298,7 @@ include('./connection.php');
                                     <i class="fa  fa-check" style="color:green"></i>
                                 <?php } else { ?>
                                     <i class="fa  fa-times" style="color:red"></i>
-                                <?php }  ?>
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="form-group">
@@ -319,7 +317,7 @@ include('./connection.php');
                                     <i id="delete_privacy" class="fa fa-scissors" style="margin-left: 5px; color:red; font-weight: bold"></i>
                                 <?php } else {
                                     echo '-';
-                                }?>
+                                } ?>
 
                             </div>
                         </div>
@@ -347,7 +345,7 @@ include('./connection.php');
                                 <p style="font-size: 16px; font-weight: bold">Data di registrazione:</p>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                <p style="font-size: 14px;"><?php echo $utente['reg_date'] ?></p>
+                                <p style="font-size: 14px;"><?php echo $utente['reg_date']; ?></p>
                             </div>
                         </div>
                     </fieldset>

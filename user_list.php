@@ -1,16 +1,15 @@
+<?php
+require("./config/session.php");
+require("./config/connection.php");
+?>
 <!doctype html>
 <html class="fixed search-results">
-<?php
-include('./head.html');
-include('./connection.php');
-?>
+<?php include('./head.html'); ?>
 
 <body>
 <section class="body">
 
-    <?php
-    include('./header.php');
-    ?>
+    <?php include('./header.php'); ?>
 
     <div class="inner-wrapper">
 
@@ -50,7 +49,7 @@ include('./connection.php');
                     <div id="everything" class="tab-pane active tm-body" style="margin-top: 80px;">
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                             <div class="tm-title">
-                                <h3 class="h5 text-uppercase"><?php echo count($utenti) ?> Clienti registrati</h3>
+                                <h3 class="h5 text-uppercase"><?php echo count($utenti); ?> Clienti registrati</h3>
                             </div>
                             <ol class="list-unstyled search-results-list tm-items" id="result">
                             </ol>
@@ -58,9 +57,7 @@ include('./connection.php');
                             <br/>
                             <br/>
                         </div>
-                        <?php
-                            include('./filter.php');
-                        ?>
+                        <?php include('./filter.php'); ?>
                     </div>
                 </div>
             </div>

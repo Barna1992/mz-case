@@ -1,9 +1,5 @@
-<!doctype html>
-<html class="fixed">
 <?php
-include('./head.html');
-include('./connection.php');
-
+require("./config/connection.php");
 
 session_start();
 
@@ -11,7 +7,8 @@ if (isset($_SESSION['session_id'])) {
     header('Location: index.php');
     exit;
 }
-$msg = '';
+
+$msg = ''; 
 if (isset($_POST['login'])) {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -30,9 +27,7 @@ if (isset($_POST['login'])) {
         $result = mysqli_query($conn, $sql);
         $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-        if (!$user || password_verify($password, $user[0]['password']) === false) {
-            $msg = 'Credenziali utente errate';
-        } else {
+        if ($user && password_verify($password, $user[0]['password']) === true) {
             session_regenerate_id();
             $_SESSION['session_id'] = session_id();
             $_SESSION['session_user'] = $user[0]['username'];
@@ -41,19 +36,69 @@ if (isset($_POST['login'])) {
 
             header('Location: index.php');
             exit;
+        } else {
+            $msg = 'Credenziali utente errate';
         }
     }
 
 }
 
 ?>
+<!doctype html>
+<html class="fixed">
+<head>
+
+    <!-- Basic -->
+    <meta charset="UTF-8">
+
+    <title>🏠 Gestionale Agenzia Immobiliare</title>
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="./assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="./assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="./assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+    <!-- Specific Page Vendor CSS -->
+    <link rel="stylesheet" href="./assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+    <link rel="stylesheet" href="./assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+    <link rel="stylesheet" href="./assets/vendor/morris/morris.css" />
+    <link rel="stylesheet" href="./assets/vendor/dropzone/css/basic.css" />
+    <link rel="stylesheet" href="./assets/vendor/dropzone/css/dropzone.css" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="./assets/stylesheets/theme.css" />
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="./assets/stylesheets/skins/default.css" />
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="./assets/stylesheets/theme-custom.css">
+
+    <!-- Head Libs -->
+    <script src="./assets/vendor/modernizr/modernizr.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .summary-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
 
 <body>
 <!-- start: page -->
 <section class="body-sign">
     <div class="center-sign">
-        <a href="/" class="logo pull-left">
-            <img src="./assets/images/logo_mz.png" height="54" alt="Porto Admin" />
+        <a href="#" class="logo pull-left">
+            <img src="./assets/images/logo_mz.png" height="54" alt="Mz-Case" />
         </a>
 
         <div class="panel panel-sign">
@@ -62,16 +107,16 @@ if (isset($_POST['login'])) {
             </div>
             <p class="text-danger" style="text-align:center"><?php echo $msg; ?></p>
             <div class="panel-body">
-                <form action="#" method="post">
+                <form action="./login.php" method="post">
                     <div class="form-group mb-lg">
                         <label>Username</label>
                         <div class="input-group input-group-icon">
                             <input name="username" type="text" class="form-control input-lg" />
                             <span class="input-group-addon">
-										<span class="icon icon-lg">
-											<i class="fa fa-user"></i>
-										</span>
-									</span>
+                                <span class="icon icon-lg">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </span>
                         </div>
                     </div>
 
@@ -82,10 +127,10 @@ if (isset($_POST['login'])) {
                         <div class="input-group input-group-icon">
                             <input name="password" type="password" class="form-control input-lg" />
                             <span class="input-group-addon">
-										<span class="icon icon-lg">
-											<i class="fa fa-lock"></i>
-										</span>
-									</span>
+                                <span class="icon icon-lg">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </span>
                         </div>
                     </div>
 
@@ -125,5 +170,5 @@ if (isset($_POST['login'])) {
 <!-- Theme Initialization Files -->
 <script src="./assets/javascripts/theme.init.js"></script>
 
-</body><img src="http://www.ten28.com/fref.jpg">
+</body>
 </html>

@@ -1,20 +1,8 @@
 <!-- start: header -->
 <header class="header">
-    <?php
-    session_start();
-
-    if (isset($_SESSION['session_id'])) {
-        $session_user_email = htmlspecialchars($_SESSION['session_user'], ENT_QUOTES, 'UTF-8');
-        $session_user_first_name = htmlspecialchars($_SESSION['session_user_first_name'], ENT_QUOTES, 'UTF-8');
-        $session_user_last_name = htmlspecialchars($_SESSION['session_user_last_name'], ENT_QUOTES, 'UTF-8');
-        $session_id = htmlspecialchars($_SESSION['session_id']);
-
-    } else {
-        header('Location: login.php');
-    }?>
     <div class="logo-container">
         <a href="./" class="logo">
-            <img src="./assets/images/logo_mz.png" height="35" alt="JSOFT Admin" />
+            <img src="./assets/images/logo_mz.png" height="35" alt="Mz-Case" />
         </a>
     </div>
 
@@ -47,13 +35,13 @@
                 <div class="profile-info" data-lock-name="Utente">
                     <span class="name"><?php
                             if( isset($_SESSION['session_id']) ) {
-                                echo $_SESSION['session_user_first_name'] . ' ' .  $_SESSION['session_user_last_name'] ;
+                                echo $_SESSION['session_user_first_name'] . ' ' .  $_SESSION['session_user_last_name'];
                             }
                         ?></span>
                     <span class="role">
                         <?php
                         if( isset($_SESSION['session_id']) ) {
-                            echo $_SESSION['session_user'] ;
+                            echo $_SESSION['session_user'];
                         }
                         ?>
                     </span>

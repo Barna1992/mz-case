@@ -1,6 +1,6 @@
 <?php
 
-include('./connection.php');
+require("./config/connection.php");
 
 $sql = "DELETE FROM AgenziaMZ WHERE id='". $_GET["id"]."'";
 

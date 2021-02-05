@@ -1,5 +1,7 @@
 <?php
-include('./connection.php');
+require("./config/session.php");
+require("./config/connection.php");
+
 if(isset($_GET['id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['id']);
     $sql = "SELECT * FROM AgenziaMZ WHERE id = $id";
@@ -11,18 +13,13 @@ if(isset($_GET['id'])) {
 ?>
 <!doctype html>
 <html class="fixed search-results">
-<?php
-include('./head.html');
-include('./connection.php');
-?>
+<?php include('./head.html'); ?>
 <link rel="stylesheet" href="assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css" />
 
 <body>
 <section class="body">
 
-    <?php
-    include('./header.php');
-    ?>
+    <?php include('./header.php'); ?>
 
     <div class="inner-wrapper" >
 
@@ -30,7 +27,7 @@ include('./connection.php');
         <form id="update_form" name="update_form" role="main" class="content-body" method="post" action="process.php" style="margin-left:0px" enctype="multipart/form-data">
             <?php if($utente): ?>
                 <header class="page-header" style="left:0px">
-                    <h2>Appartamento riferito a <?php echo $utente['first_name'] .' '. $utente['last_name']?></h2>
+                    <h2>Appartamento riferito a <?php echo $utente['first_name'] .' '. $utente['last_name']; ?></h2>
                 </header>
             <?php else: ?>
                 <header class="page-header" style="left:0px">
@@ -41,25 +38,25 @@ include('./connection.php');
                 <div class="form-group">
                     <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="first_name">Nome</label>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <input type="text" class="form-control" name="first_name" id="first_name" value="<?php echo $utente['first_name'] ?>">
+                        <input type="text" class="form-control" name="first_name" id="first_name" value="<?php echo $utente['first_name']; ?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="last_name">Cognome</label>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <input type="text" class="form-control" name="last_name" id="last_name" value="<?php echo $utente['last_name'] ?>">
+                        <input type="text" class="form-control" name="last_name" id="last_name" value="<?php echo $utente['last_name']; ?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="email">email</label>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <input type="text" class="form-control" name="email" id="email" value="<?php echo $utente['email'] ?>">
+                        <input type="text" class="form-control" name="email" id="email" value="<?php echo $utente['email']; ?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="telephone">Telefono</label>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <input type="text" class="form-control" name="telephone" id="telephone" value="<?php echo $utente['telephone'] ?>">
+                        <input type="text" class="form-control" name="telephone" id="telephone" value="<?php echo $utente['telephone']; ?>">
                     </div>
                 </div>
                     <div class="form-group">
@@ -68,7 +65,8 @@ include('./connection.php');
                             <select class="form-control" name="type_house" id="type_house" required>
                                 <option value="albergo">Albergo</option>
                                 <option value="appartamento">Appartamenti</option>
-                                <option value="attivita">Attività</option>                                <option value="villa">Ville</option>
+                                <option value="attivita">Attivit&agrave;</option>
+                                <option value="villa">Ville</option>
                                 <option value="rustico">Rustici / cascine / case</option>
                                 <option value="box">Box / posti auto</option>
                                 <option value="terreno">Terreno</option>
@@ -80,29 +78,11 @@ include('./connection.php');
                         <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="immobile_vendita_paese">Località</label>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <select class="form-control" name="immobile_vendita_paese" id="immobile_vendita_paese" required>
-                                <optgroup label="Borca">
-                                    <option value="Borca">Borca</option>
-                                </optgroup>
-                                <optgroup label="Cortina">
-                                    <option value="Alvera">Alverà</option>
-                                    <option value="Cadin">Cadin</option>
-                                    <option value="Cortina">Cortina</option>
-                                    <option value="Fiammes">Fiammes</option>
-                                    <option value="Pocol">Pocol</option>
-                                    <option value="Zuel">Zuel</option>
-                                </optgroup>
-                                <optgroup label="San Vito">
-                                    <option value="Dogana Vecchia">Dogana Vecchia</option>
-                                    <option value="San Vito">San Vito</option>
-                                    <option value="Serdes">Serdes</option>
-                                </optgroup>
-                                <optgroup label="Valle">
-                                    <option value="Valle">Valle</option>
-                                    <option value="Venas">Venas</option>
-                                </optgroup>
-                                <optgroup label="Vodo">
-                                    <option value="Vodo">Vodo</option>
-                                </optgroup>
+                                <option value="Borca">Borca</option>
+                                <option value="Cortina">Cortina</option>
+                                <option value="San Vito">San Vito</option>
+                                <option value="Valle">Valle</option>
+                                <option value="Vodo">Vodo</option>
                             </select>
                         </div>
                     </div>
@@ -112,7 +92,7 @@ include('./connection.php');
                         <div class="col-md-6">
                             <?php
                             $paesi_scelti = explode(",",$utente['immobile_ricerca_paesi']);
-                            $paesi = array('Borca', 'Cortina','San Vito', 'Valle', 'Venas', 'Vodo');
+                            $paesi = array('Borca', 'Cortina','San Vito', 'Valle', 'Vodo');
 
                             sort($paesi);
                             foreach($paesi as $paese) {
@@ -144,13 +124,13 @@ include('./connection.php');
                     <div class="form-group">
                         <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="rif_num_inviato">Riferimenti inviati</label>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                            <input type="text" class="form-control" name="rif_num_inviato" id="rif_num_inviato" value="<?php echo $utente['rif_num_inviato'] ?>">
+                            <input type="text" class="form-control" name="rif_num_inviato" id="rif_num_inviato" value="<?php echo $utente['rif_num_inviato']; ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="rif_num_visitato">Riferimenti visitati</label>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                            <input type="text" class="form-control" name="rif_num_visitato" id="rif_num_visitato" value="<?php echo $utente['rif_num_visitato'] ?>">
+                            <input type="text" class="form-control" name="rif_num_visitato" id="rif_num_visitato" value="<?php echo $utente['rif_num_visitato']; ?>">
                         </div>
                     </div>
 <!--                    <div class="form-group">-->
@@ -169,7 +149,7 @@ include('./connection.php');
                     <div class="form-group">
                         <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="prezzo">Prezzo</label>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                            <input type="text" class="form-control" name="prezzo" id="prezzo" value="<?php echo number_format($utente['prezzo'], 0, ',', '.') ?>">
+                            <input type="text" class="form-control" name="prezzo" id="prezzo" value="<?php echo number_format($utente['prezzo'], 0, ',', '.'); ?>">
                         </div>
                         <span>&#8364;</span>
                     </div>
@@ -377,7 +357,7 @@ include('./connection.php');
                         </div>
                     </div>
             </div>
-            <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $_GET['id'] ?>">
+            <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $_GET['id']; ?>">
             <div class="panel-footer">
                 <ul class="pager">
                     <li class="finish pull-right salva-form">
@@ -409,11 +389,10 @@ include('./connection.php');
 <!-- Theme Initialization Files -->
 <script src="assets/javascripts/theme.init.js"></script>
 <script>
-    document.getElementById('type_house').value='<?php echo $utente['type_house']?>';
+    document.getElementById('type_house').value='<?php echo $utente['type_house']; ?>';
     <?php if( !empty($utente['immobile_vendita_paese'])) { ?>
-    document.getElementById('immobile_vendita_paese').value='<?php echo $utente['immobile_vendita_paese']?>';
-    <?php } else { ?>
-    <?php } ?>
+    document.getElementById('immobile_vendita_paese').value='<?php echo $utente['immobile_vendita_paese']; ?>';
+    <?php } else { } ?>
 </script>
 </body>
 </html>
