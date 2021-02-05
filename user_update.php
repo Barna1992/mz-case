@@ -149,7 +149,14 @@ if(isset($_GET['id'])) {
                     <div class="form-group">
                         <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="prezzo">Prezzo</label>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                            <input type="text" class="form-control" name="prezzo" id="prezzo" value="<?php echo number_format($utente['prezzo'], 0, ',', '.'); ?>">
+                            <input type="text" class="form-control" name="prezzo" id="prezzo" value="<?php
+                                if ($utente['prezzo']) {
+                                    echo number_format($utente['prezzo'], 0, ',', '.');
+                                }
+                                else {
+                                    echo '';
+                                }
+                            ?>">
                         </div>
                         <span>&#8364;</span>
                     </div>
@@ -252,9 +259,7 @@ if(isset($_GET['id'])) {
                 <?php
                 $uploadDir = './uploads';
                 $new_dir_path_privacy = $uploadDir . DIRECTORY_SEPARATOR . $_GET['id'] . DIRECTORY_SEPARATOR . 'privacy';
-                if (!is_dir($new_dir_path_privacy)) {
-                    $files = scandir($new_dir_path_privacy);
-                    $firstFile = $new_dir_path_privacy . DIRECTORY_SEPARATOR . $files[2]; ?>
+                if (!is_dir($new_dir_path_privacy)) {?>
                     <div class="form-group">
                         <label class="col-md-3 control-label">Privacy</label>
                         <div class="col-md-6">
@@ -280,8 +285,7 @@ if(isset($_GET['id'])) {
                 $uploadDir = './uploads';
                 $new_dir_path_visita = $uploadDir . DIRECTORY_SEPARATOR . $_GET['id'] . DIRECTORY_SEPARATOR . 'visita';
                 if (!is_dir($new_dir_path_visita)) {
-                    $files = scandir($new_dir_path_visita);
-                    $firstFile = $new_dir_path_visita . DIRECTORY_SEPARATOR . $files[2]; ?>
+                     ?>
                     <div class="form-group">
                         <label class="col-md-3 control-label">Foglio di visita</label>
                         <div class="col-md-6">

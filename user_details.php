@@ -309,15 +309,20 @@ include('./head.html');
                                 <?php
                                 $uploadDir = './uploads';
                                 $new_dir_path = $uploadDir . DIRECTORY_SEPARATOR . $_GET['id'] . DIRECTORY_SEPARATOR . 'privacy';
-                                $files = scandir($new_dir_path);
-                                $firstFile = $new_dir_path . DIRECTORY_SEPARATOR . $files[2];
+                                if ( is_dir($new_dir_path) ) {
+                                    $files = scandir($new_dir_path);
+                                    $firstFile = $new_dir_path . DIRECTORY_SEPARATOR . $files[2];
 
-                                if( is_dir($new_dir_path)  ) { ?>
-                                    <i class="fa fa-file-pdf-o"></i><a href="<?php echo $firstFile; ?>" download="<?php echo $files[2]; ?>"><?php echo $files[2]; ?></a></i>
-                                    <i id="delete_privacy" class="fa fa-scissors" style="margin-left: 5px; color:red; font-weight: bold"></i>
-                                <?php } else {
+                                    if( is_dir($new_dir_path)  ) { ?>
+                                        <i class="fa fa-file-pdf-o"></i><a href="<?php echo $firstFile; ?>" download="<?php echo $files[2]; ?>"><?php echo $files[2]; ?></a></i>
+                                        <i id="delete_privacy" class="fa fa-scissors" style="margin-left: 5px; color:red; font-weight: bold"></i>
+                                    <?php } else {
+                                        echo '-';
+                                    }
+                                } else {
                                     echo '-';
-                                } ?>
+                                    }
+                                 ?>
 
                             </div>
                         </div>
@@ -329,13 +334,17 @@ include('./head.html');
                                 <?php
                                 $uploadDir = './uploads';
                                 $new_dir_path = $uploadDir . DIRECTORY_SEPARATOR . $_GET['id'] . DIRECTORY_SEPARATOR . 'visita';
-                                $files = scandir($new_dir_path);
-                                $firstFile = $new_dir_path . DIRECTORY_SEPARATOR . $files[2];
+                                if ( is_dir($new_dir_path) ) {
+                                    $files = scandir($new_dir_path);
+                                    $firstFile = $new_dir_path . DIRECTORY_SEPARATOR . $files[2];
 
-                                if(is_dir($new_dir_path)) { ?>
-                                    <i class="fa fa-file-pdf-o"></i><a href="<?php echo $firstFile; ?>" download="<?php echo $files[2]; ?>"><?php echo $files[2]; ?></a>
-                                    <i id="delete_visita" class="fa fa-scissors" style="margin-left: 5px; color:red; font-weight: bold"></i>
-                                <?php } else {
+                                    if(is_dir($new_dir_path)) { ?>
+                                        <i class="fa fa-file-pdf-o"></i><a href="<?php echo $firstFile; ?>" download="<?php echo $files[2]; ?>"><?php echo $files[2]; ?></a>
+                                        <i id="delete_visita" class="fa fa-scissors" style="margin-left: 5px; color:red; font-weight: bold"></i>
+                                    <?php } else {
+                                        echo '-';
+                                    }
+                                    } else {
                                     echo '-';
                                 }?>
                             </div>
