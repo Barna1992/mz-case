@@ -1,17 +1,46 @@
 <div id="w4-profile" class="tab-pane">
     <div class="form-group">
-        <label class="col-sm-3 control-label" for="inputSuccess">Tipologia</label>
-        <div class="col-sm-6">
-            <select class="form-control" name="type_house" id="type_house" required>
-                <option value="albergo">Albergo</option>
-                <option value="appartamento">Appartamenti</option>
-                <option value="attivita">Attivit&agrave;</option>
-                <option value="villa">Ville</option>
-                <option value="rustico">Rustici / cascine / case</option>
-                <option value="box">Box / posti auto</option>
-            </select>
+        <label class="col-md-3 control-label" for="inputSuccess">Tipologia:</label>
+        <div class="col-md-6">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="albergo" name="type_house[]" class="info-aggiuntive tipolgia_interesse">
+                        Albergo
+                    </label>
+                </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="appartamenti" name="type_house[]" class="info-aggiuntive tipolgia_interesse">
+                    Appartamenti
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="attivita" name="type_house[]" class="info-aggiuntive tipolgia_interesse">
+                    Attivit&agrave;
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="ville" name="type_house[]" class="info-aggiuntive tipolgia_interesse">
+                    Ville
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="rustici" name="type_house[]" class="info-aggiuntive tipolgia_interesse">
+                    Rustici / cascine / case
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="box" name="type_house[]" class="info-aggiuntive tipolgia_interesse">
+                    Box / posti auto
+                </label>
+            </div>
         </div>
     </div>
+
     <div class="form-group" id="div_immobile_vendita_paese" hidden>
         <label class="col-sm-3 control-label" for="immobile_vendita_paese">Paese</label>
         <div class="col-sm-6">

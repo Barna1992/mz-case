@@ -20,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telephone = mysqli_real_escape_string($conn, $_POST["telephone"]);
     $user_type = mysqli_real_escape_string($conn, $_POST["user_type"]);
     $birthdate = '2020-01-01';
-    $type_house = mysqli_real_escape_string($conn, $_POST["type_house"]);
     $rif_num = mysqli_real_escape_string($conn, $_POST["rif_num"]);
     $rif_num_visitato = mysqli_real_escape_string($conn, $_POST["rif_num_visitato"]);
     $rif_num_inviato = mysqli_real_escape_string($conn, $_POST["rif_num_inviato"]);
@@ -32,7 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($_POST["immobile_ricerca_paesi"] as $key => $value) {
         $list[] = "$value";
     }
+    foreach ($_POST["type_house"] as $key => $value) {
+        $list_tipologia[] = "$value";
+    }
     $immobile_ricerca_paesi = implode(",", $list);
+    $type_house = implode(",", $list_tipologia);
     $metratura = mysqli_real_escape_string($conn, $_POST["metratura"]);
     $anno = mysqli_real_escape_string($conn, $_POST["anno"]);
     $prezzo = str_replace(".", "", mysqli_real_escape_string($conn, $_POST["prezzo"]));

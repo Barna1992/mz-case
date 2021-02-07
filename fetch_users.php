@@ -22,14 +22,6 @@ if (isset($_POST["action"])) {
         $sql .= " AND ( prezzo BETWEEN " . $_POST["minimum_price"] . " AND " . $_POST["maximum_price"] . ") ";
     }
 
-//    if (isset($_POST["minimum_metratura"], $_POST["maximum_metratura"])  && !empty($_POST["maximum_metratura"])) {
-//        $sql .= " AND (metratura BETWEEN " . $_POST["minimum_metratura"] . " AND " . $_POST["maximum_metratura"] . ")";
-//    }
-
-//    if (isset($_POST["minimum_locali"], $_POST["maximum_locali"])  && !empty($_POST["maximum_locali"])) {
-//        $sql .= " AND (locali BETWEEN " . $_POST["minimum_locali"] . " AND " . $_POST["maximum_locali"] . ")";
-//    }
-
     if (isset($_POST["minimum_camere"], $_POST["maximum_camere"])  && !empty($_POST["maximum_camere"])) {
         $sql .= " AND (camere BETWEEN " . $_POST["minimum_camere"] . " AND " . $_POST["maximum_camere"] . ")";
     }
@@ -38,20 +30,11 @@ if (isset($_POST["action"])) {
         $sql .= " AND (bagni BETWEEN " . $_POST["minimum_bagni"] . " AND " . $_POST["maximum_bagni"] . ")";
     }
 
-//    if (isset($_POST["classe_energetica"])) {
-//        $classe_energetica = implode("','", $_POST["classe_energetica"]);
-//        $sql .= " AND (classe_energetica IN ('".$classe_energetica."'))";
-//    }
-
     if (isset($_POST["immobile_vendita_paese"])) {
         $immobile_vendita_paese = implode("','", $_POST["immobile_vendita_paese"]);
         $sql .= " AND (immobile_vendita_paese IN ('".$immobile_vendita_paese."'))";
     }
 
-//    if (isset($_POST["arredamento"])) {
-//        $arredamento = implode("','", $_POST["arredamento"]);
-//        $sql .= " AND (arredamento IN ('".$arredamento."'))";
-//    }
 
     if (isset($_POST["paesi_scelti"]) && $_POST["paesi_scelti"]) {
         $sql .= " AND (immobile_ricerca_paesi LIKE '%".$_POST["paesi_scelti"]."%')";
@@ -100,7 +83,7 @@ if(mysqli_num_rows($result) > 0)
 												<i class="fa fa-send" style="margin-right:1em; color: #0088cc"></i>'. $utente['email'] . ' <br><i class="fa fa-phone" style="margin-right:1em; color: #0088cc"></i> ' . $utente['telephone'] . '
 											</span>
 											<span style="color:#34495e">
-												<i class="fa fa-eur" style="margin-right:1em; color: #0088cc"></i>'. number_format(floatval($utente['prezzo']), 0, ',', '.') . ' <br><i class="fa fa-map-marker" style="margin-right:1em; color: #0088cc"></i> ' . $utente['immobile_vendita_paese'] . '
+												<i class="fa fa-eur" style="margin-right:1em; color: #0088cc"></i>'. number_format(floatval($utente['prezzo']), 0, ',', '.') . ' <br><i class="fa fa-map-marker" style="margin-right:1em; color: #0088cc"></i> ' . $utente['immobile_ricerca_paesi'] . '
 											</span>											
 											</a>
 										</div>
