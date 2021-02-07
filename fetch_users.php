@@ -76,7 +76,7 @@ if(mysqli_num_rows($result) > 0)
 											<div class="tm-datetime-time">' . strtoupper(htmlspecialchars($utente['first_name']) . "<br>" . strtoupper($utente['last_name'])) . '</div>
 									</time>
 									</div>
-									<div class="tm-box">
+									<div class="tm-box" style="margin-left: 3vw;">
 										<div class="tm-meta">
 											<a href="user_details.php?id='. $utente['id'] . '" style="display: flex;justify-content: space-between;">
 											<span style="color:#34495e">
