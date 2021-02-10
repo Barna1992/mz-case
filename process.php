@@ -28,14 +28,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $immobile_vendita_paese = NULL;
     }
     $list = array();
-    foreach ($_POST["immobile_ricerca_paesi"] as $key => $value) {
-        $list[] = "$value";
+    $list_tipologia = array();
+    $immobile_ricerca_paesi = '';
+    if(isset($_POST["immobile_ricerca_paesi"]) && !empty($_POST["immobile_ricerca_paesi"])){
+        foreach ($_POST["immobile_ricerca_paesi"] as $key => $value) {
+            $list[] = "$value";
+        }
+        $immobile_ricerca_paesi = implode(",", $list);
     }
-    foreach ($_POST["type_house"] as $key => $value) {
-        $list_tipologia[] = "$value";
+    $type_house = '';
+    if (isset($_POST["type_house"]) && !empty($_POST["type_house"])) {
+        foreach ($_POST["type_house"] as $key => $value) {
+            $list_tipologia[] = "$value";
+        }
+        $type_house = implode(",", $list_tipologia);
     }
-    $immobile_ricerca_paesi = implode(",", $list);
-    $type_house = implode(",", $list_tipologia);
     $metratura = mysqli_real_escape_string($conn, $_POST["metratura"]);
     $anno = mysqli_real_escape_string($conn, $_POST["anno"]);
     $prezzo = str_replace(".", "", mysqli_real_escape_string($conn, $_POST["prezzo"]));
@@ -112,7 +119,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo 'query error: '.mysqli_error($conn);
     }
 
-    print_r($_FILES);
 
     $uploadDir = './uploads';
 
